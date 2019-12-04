@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class ManageDate
 {
-  private ArrayList<Date> dates = new ArrayList<>();
+  private ArrayList<Date> dates;
 
   public ManageDate()
   {
-    ArrayList<Date> dates = new ArrayList<>();
+    dates = new ArrayList<Date>();
   }
 
   public Date getAllDates()                 //We have to check it
