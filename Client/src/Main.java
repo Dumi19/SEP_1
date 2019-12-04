@@ -1,4 +1,8 @@
 public class Main
 {
-  Constructor( 1 2 4)
+  private int class ;
+public Constructor(int class)
+{
+  this.class = class;
+}
 }
