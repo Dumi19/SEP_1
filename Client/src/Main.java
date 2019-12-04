@@ -1,7 +1,11 @@
 public class Main
 {
-  public static void main(String[] args)
-  {
-    System.out.println("Hiiii");
-  }
+  private int class ;
+public Constructor(int class)
+{
+  this.class = class
+
+    Scanner sdfdsf = new Scanner(System.in);
+  g
+}
 }
