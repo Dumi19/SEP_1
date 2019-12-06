@@ -9,13 +9,15 @@ public class manageCourse_list
     ArrayList<Course> courses = new ArrayList<>();
   }
 
-  public Course getAllCourses()
+  public ArrayList<Course> getAllCourses()
   {
-    for (int i = 0; i < courses.size(); i++)
-    {
-       courses.get(i);
-    }
-    return null; //I don't know if this part is correct
+//   // for (int i = 0; i < courses.size(); i++)
+//    {
+//        return courses.get(i);
+//    }
+//    return null; //I don't know if this part is correct
+
+    return courses;
   }
 
   public void addCourse(Course course)

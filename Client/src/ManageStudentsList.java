@@ -14,6 +14,16 @@ public class ManageStudentsList
     return students;
   }
 
+  public ArrayList<Student> getStudentsByCourse(String course) {
+    ArrayList<Student> tempList = new ArrayList<Student>();
+    for (int i = 0 ; i<students.size(); i++){
+      if(students.get(i).getCourseCode().equals(course)){
+        tempList.add(students.get(i));
+      }
+    }
+    return tempList;
+  }
+
   public void addStudent(Student student)
   {
     students.add(student);

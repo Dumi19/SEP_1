@@ -13,7 +13,7 @@ public class ManageTeachers
     return teachers.size();
   }
 
-  public Teacher getTeachers()     //im not sure how to do that
+  public ArrayList<Teacher> getTeachers()     //im not sure how to do that
   {
     return teachers;
   }
@@ -42,14 +42,15 @@ public class ManageTeachers
     return amount;
   }
 
-  public Teacher getAvaliableTeachers()               //check
+  public ArrayList<Teacher> getAvaliableTeachers()               //check
   {
+    ArrayList<Teacher> tempList = new ArrayList<Teacher>;
     for (int i = 0; i <teachers.size() ; i++)
     {
       if (teachers.get(i).isAvaliable())
-        return teachers.get(i);
+        tempList.add(teachers.get(i));
     }
-    return null;
+    return tempList;
   }
 
 
