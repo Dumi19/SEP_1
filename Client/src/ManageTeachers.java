@@ -44,7 +44,7 @@ public class ManageTeachers
 
   public ArrayList<Teacher> getAvaliableTeachers()               //check
   {
-    ArrayList<Teacher> tempList = new ArrayList<Teacher>;
+    ArrayList<Teacher> tempList = new ArrayList<Teacher>();
     for (int i = 0; i <teachers.size() ; i++)
     {
       if (teachers.get(i).isAvaliable())
