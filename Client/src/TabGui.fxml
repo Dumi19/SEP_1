@@ -24,7 +24,7 @@
                   <ComboBox fx:id="examinerBox" layoutX="398.0" layoutY="143.0" onAction="#initialize" prefWidth="150.0" />
                   <ComboBox fx:id="classroomBox" layoutX="398.0" layoutY="261.0" onAction="#initialize" prefWidth="150.0" />
                   <DatePicker layoutX="206.0" layoutY="50.0" />
-                  <Button layoutX="264.0" layoutY="317.0" mnemonicParsing="false" text="Schedule!" />
+                  <Button fx:id="submit" layoutX="264.0" layoutY="317.0" mnemonicParsing="false" onAction="#initialize" text="Schedule!" />
                </children></AnchorPane>
       </content>
     </Tab>

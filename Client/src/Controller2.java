@@ -12,6 +12,7 @@ public class Controller2
 
 
   public void initialize() {
+
     courseBox.getItems().removeAll(courseBox.getItems());
     courseBox.getItems().addAll("SDJ1", "SSE", "RWD1", "MSE", "SEP1", "SDJ2", "DBS1", "SWE1", "SEP2");
     courseBox.setPromptText("Choose course");
@@ -27,6 +28,8 @@ public class Controller2
     classroomBox.getItems().removeAll(classroomBox.getItems());
     classroomBox.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9");
     classroomBox.setPromptText("Choose classroom");
+
+    submit.setOnAction(e -> printSchedule());
   }
 
   private void printSchedule()
