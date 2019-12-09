@@ -6,8 +6,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="217.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="217.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller">
    <children>
       <MenuBar layoutX="-1.0" layoutY="-1.0" prefHeight="28.0" prefWidth="217.0">
          <menus>
@@ -28,8 +27,8 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Button layoutX="71.0" layoutY="53.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="73.0" text="EDIT" />
+      <Button layoutX="71.0" layoutY="53.0" mnemonicParsing="false" onAction="#setNext_Scene" prefHeight="69.0" prefWidth="73.0" text="EDIT" />
       <Button layoutX="71.0" layoutY="191.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="73.0" text="SCHEDULE" />
-      <Button layoutX="162.0" layoutY="298.0" mnemonicParsing="false" text="Next" />
+      <Button layoutX="162.0" layoutY="298.0" mnemonicParsing="false" onAction="#setNext_Scene" text="Next" />
    </children>
 </Pane>
