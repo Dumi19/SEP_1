@@ -4,12 +4,20 @@ public class ManageStudentsList
 {
   private ArrayList<Student> students;
 
+  /**
+   * No-argument constructor initializing the StudentList.
+   */
   public ManageStudentsList()
   {
     students = new ArrayList<Student>();
   }
 
-  public Student getAllStudents(int index)   //idk
+  /**
+   * Gets a Student object from position index from the list.
+   * @param index the position in the list of the Student object
+   * @return the Student object at position index if one exists, else null
+   */
+  public Student getAllStudents(int index)
   {
     if(index<students.size())
     {
@@ -21,6 +29,11 @@ public class ManageStudentsList
     }
   }
 
+  /**
+   * Gets a Student object from ArrayList where the course matches.
+   * @param course the position in the ArrayList
+   * @return the Student temporary ArrayList where course equals choosen course
+   */
   public ArrayList<Student> getStudentsByCourse(String course)
   {
     ArrayList<Student> tempList = new ArrayList<Student>();
@@ -34,16 +47,28 @@ public class ManageStudentsList
     return tempList;
   }
 
+  /**
+   * Adds a Student to the list.
+   * @param student the student to add to the list
+   */
   public void addStudent(Student student)
   {
     students.add(student);
   }
 
+  /**
+   * Removes a Student from the list.
+   * @param student the student to remove from the list
+   */
   public void removeStudents(Student student)
   {
     students.remove(student);
   }
 
+
+  /**
+   * Returns number of students in the ArrayList.
+   */
   public int getNumberOfStudents()
   {
     return students.size();

@@ -41,7 +41,7 @@ public class LoadInitialData
       
       try
       {
-         mfio.writeToFile("students.bin", students);
+         mfio.writeToFile("studentsList.bin", students);
       }
       catch (FileNotFoundException e)
       {
