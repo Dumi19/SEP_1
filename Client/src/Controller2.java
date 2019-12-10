@@ -85,6 +85,9 @@ public class Controller2
     String studentNumber = studentNumberField.getText();
     String classNumber = classNumberField.getText();
 
+    System.out.println(studentNumber);
+    System.out.println(classNumber);
+
     adapterStudents.changeCountry(studentNumber, classNumber);
     studentListMethod();
     studentNumberField.setText("");

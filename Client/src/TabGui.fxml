@@ -42,7 +42,7 @@
                   <Label layoutX="24.0" layoutY="110.0" text="Class:" />
                   <TextField layoutX="140.0" layoutY="50.0" />
                   <TextField layoutX="140.0" layoutY="105.0" />
-                  <Button layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+                  <Button fx:id="updateStudents" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                </children></AnchorPane>
       </content>
     </Tab>
