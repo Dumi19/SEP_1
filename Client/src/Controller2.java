@@ -15,7 +15,7 @@ public class Controller2
   @FXML private ListView<Teacher> TeachersList;
   @FXML private ListView<Course> CourseList;
   @FXML private ListView<Room> RoomsList;
-  private StudentFileAdapter adapter;
+  private StudentFileAdapter adapterStudents;
 
 
   public void initialize()
@@ -41,8 +41,8 @@ public class Controller2
     export.setOnAction(e -> exportAlert());
 
 
-    adapter= new StudentFileAdapter("Client/StudentsList.bin");
-    ManageStudentsList list = adapter.getAllStudents();
+    adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
+    ManageStudentsList list = adapterStudents.getAllStudents();
 
     for (int i = 0; i < list.getNumberOfStudents(); i++)
     {
@@ -79,7 +79,7 @@ public class Controller2
 
     StudentList.getItems().clear();
 
-    ManageStudentsList students = adapter.getAllStudents();
+    ManageStudentsList students = adapterStudents.getAllStudents();
     for (int i = 0; i < students.getNumberOfStudents(); i++)
     {
       StudentList.getItems().add(students.getAllStudents(i));

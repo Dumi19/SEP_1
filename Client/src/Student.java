@@ -37,5 +37,10 @@ public class Student implements Serializable
     return studentsClass;
   }
 
+  public String toString()
+  {
+    return studentID +" " + studentsClass ;
+  }
+
 
 }
