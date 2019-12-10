@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller2">
+  <tabs>
+    <Tab text="Schedule exam">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="54.0" layoutY="103.0" text="Choose course:" />
+                  <ComboBox fx:id="courseBox" layoutX="20.0" layoutY="143.0" onAction="#initialize" prefWidth="150.0" />
+                  <Label layoutX="48.0" layoutY="215.0" text="Choose students:" />
+                  <ComboBox fx:id="studentsBox" layoutX="19.0" layoutY="268.0" onAction="#initialize" prefWidth="150.0" />
+                  <Label layoutX="265.0" layoutY="20.0" text="Choose date:" />
+                  <Label layoutX="426.0" layoutY="103.0" text="Choose examiner:" />
+                  <Label layoutX="422.0" layoutY="215.0" text="Choose classroom:" />
+                  <ComboBox fx:id="examinerBox" layoutX="398.0" layoutY="143.0" onAction="#initialize" prefWidth="150.0" />
+                  <ComboBox fx:id="classroomBox" layoutX="398.0" layoutY="261.0" onAction="#initialize" prefWidth="150.0" />
+                  <DatePicker fx:id="datePicker" layoutX="206.0" layoutY="50.0" />
+                  <Button fx:id="submit" layoutX="264.0" layoutY="317.0" mnemonicParsing="false" onAction="#initialize" text="Schedule!" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Edit students">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="StudentList" layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
+                  <Label layoutX="24.0" layoutY="55.0" text="Student number:" />
+                  <Label layoutX="24.0" layoutY="110.0" text="Class:" />
+                  <TextField layoutX="140.0" layoutY="50.0" />
+                  <TextField layoutX="140.0" layoutY="105.0" />
+                  <Button layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Edit courses">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="24.0" layoutY="55.0" text="Name:" />
+                  <Label layoutX="24.0" layoutY="110.0" text="Type:" />
+                  <Label layoutX="24.0" layoutY="165.0" text="Number of students:" />
+                  <ListView layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
+                  <TextField layoutX="140.0" layoutY="50.0" />
+                  <TextField layoutX="140.0" layoutY="105.0" />
+                  <TextField layoutX="140.0" layoutY="160.0" />
+                  <Button layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Edit examiners">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="24.0" layoutY="55.0" text="Name:" />
+                  <Label layoutX="24.0" layoutY="110.0" text="Last name:" />
+                  <Label layoutX="24.0" layoutY="165.0" text="Subject:" />
+                  <Label layoutX="24.0" layoutY="220.0" text="Availability:" />
+                  <ListView layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
+                  <TextField layoutX="140.0" layoutY="48.0" />
+                  <TextField layoutX="140.0" layoutY="100.0" />
+                  <TextField layoutX="140.0" layoutY="160.0" />
+                  <DatePicker layoutX="140.0" layoutY="215.0" prefHeight="27.0" prefWidth="160.5" />
+                  <Button layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Edit classrooms">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ListView layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
+                  <Label layoutX="24.0" layoutY="55.0" text="Room number:" />
+                  <Label layoutX="24.0" layoutY="110.0" text="Seats number:" />
+                  <Label layoutX="24.0" layoutY="165.0" text="Is it equiped:" />
+                  <Label layoutX="24.0" layoutY="246.0" text="Is it free:" />
+                  <TextField layoutX="139.0" layoutY="50.0" />
+                  <TextField layoutX="140.0" layoutY="105.0" />
+                  <TextField layoutX="140.0" layoutY="160.0" />
+                  <RadioButton layoutX="237.0" layoutY="246.0" mnemonicParsing="false" text="No" />
+                  <RadioButton layoutX="159.0" layoutY="246.0" mnemonicParsing="false" text="Yes" />
+                  <Button layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Exams">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="26.0" layoutY="16.0" prefHeight="296.0" prefWidth="552.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Class" />
+                      <TableColumn prefWidth="75.0" text="Course" />
+                        <TableColumn prefWidth="175.0" text="Examiner" />
+                        <TableColumn prefWidth="84.0" text="Classroom" />
+                        <TableColumn prefWidth="142.0" text="Date" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="export" layoutX="273.0" layoutY="320.0" mnemonicParsing="false" text="Export" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
