@@ -1,9 +1,15 @@
 public class Student
 {
-  private int studentID;
+  private String studentID;
   private String courseCode;
 
-  public void setStudentID(int studentID)
+  public Student(String studentID, String courseCode)
+  {
+    this.studentID = studentID;
+    this.courseCode = courseCode;
+  }
+
+  public void setStudentID(String studentID)
   {
     this.studentID = studentID;
   }
@@ -13,7 +19,7 @@ public class Student
     this.courseCode = courseCode;
   }
 
-  public int getStudentID()
+  public String getStudentID()
   {
     return studentID;
   }
