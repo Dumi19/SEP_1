@@ -39,6 +39,16 @@ public class Controller2
 
     submit.setOnAction(e -> scheduleAlert());
     export.setOnAction(e -> exportAlert());
+
+
+    adapter= new StudentFileAdapter("Client/StudentsList.bin");
+    ManageStudentsList list = adapter.getAllStudents();
+
+    for (int i = 0; i < list.getNumberOfStudents(); i++)
+    {
+      StudentList.getItems().add(list.getAllStudents(i));
+    }
+
   }
 
 

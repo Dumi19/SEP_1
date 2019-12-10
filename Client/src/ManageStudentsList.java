@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ManageStudentsList
+public class ManageStudentsList implements Serializable
 {
   private ArrayList<Student> students;
 

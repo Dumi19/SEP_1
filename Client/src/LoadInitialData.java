@@ -19,7 +19,7 @@ public class LoadInitialData
     String[] studentArray = null;
     try
     {
-      studentArray = mtfio.readArrayFromFile("studentsList.txt");
+      studentArray = mtfio.readArrayFromFile("Client/studentsList.txt");
 
       for(int i = 0; i<studentArray.length; i++)
       {
@@ -41,7 +41,7 @@ public class LoadInitialData
 
     try
     {
-      mfio.writeToFile("studentsList.bin", students);
+      mfio.writeToFile("Client/studentsList.bin", students);
     }
     catch (FileNotFoundException e)
     {
