@@ -3,12 +3,18 @@ import java.io.Serializable;
 public class Student implements Serializable
 {
   private String studentID;
-  private String courseCode;
+  private String studentsClass;
 
+
+  /**
+   * Three-argument constructor.
+   * @param studentID the VIA ID's number
+   * @param studentsClass the student's class name
+   */
   public Student(String studentID, String courseCode)
   {
     this.studentID = studentID;
-    this.courseCode = courseCode;
+    this.studentsClass = courseCode;
   }
 
   public void setStudentID(String studentID)
@@ -18,7 +24,7 @@ public class Student implements Serializable
 
   public void setCourseCode(String courseCode)
   {
-    this.courseCode = courseCode;
+    this.studentsClass = courseCode;
   }
 
   public String getStudentID()
@@ -28,7 +34,7 @@ public class Student implements Serializable
 
   public String getCourseCode()
   {
-    return courseCode;
+    return studentsClass;
   }
 
 
