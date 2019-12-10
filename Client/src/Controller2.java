@@ -8,6 +8,7 @@ public class Controller2
   @FXML private ComboBox<String> examinerBox;
   @FXML private ComboBox<String> classroomBox;
   @FXML private Button submit;
+  @FXML private Button updateStudents;
   @FXML private Button export;
   @FXML private DatePicker datePicker;
   @FXML private Alert alert;
@@ -16,6 +17,11 @@ public class Controller2
   @FXML private ListView<Course> CourseList;
   @FXML private ListView<Room> RoomsList;
   private StudentFileAdapter adapterStudents;
+  private StudentFileAdapter adapterTeachers;
+  private StudentFileAdapter adapterCourse;
+  private StudentFileAdapter adapterRooms;
+  private TextField studentNumberField;
+  private TextField classNumberField;
 
 
   public void initialize()
@@ -39,6 +45,7 @@ public class Controller2
 
     submit.setOnAction(e -> scheduleAlert());
     export.setOnAction(e -> exportAlert());
+    updateStudents.setOnAction(e -> updateInfo());
 
 
     adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
@@ -49,6 +56,11 @@ public class Controller2
       StudentList.getItems().add(list.getAllStudents(i));
     }
 
+
+
+    adapterTeachers= new StudentFileAdapter("Client/StudentsList.bin");
+    adapterCourse= new StudentFileAdapter("Client/StudentsList.bin");
+    adapterRooms= new StudentFileAdapter("Client/StudentsList.bin");
   }
 
 
@@ -67,6 +79,16 @@ public class Controller2
     alert.setHeaderText("Are you sure you want to export the schedule?");
 
     alert.showAndWait();
+  }
+
+  private void updateInfo() {
+    String studentNumber = studentNumberField.getText();
+    String classNumber = classNumberField.getText();
+
+    adapterStudents.changeCountry(studentNumber, classNumber);
+    studentListMethod();
+    studentNumberField.setText("");
+    classNumberField.setText("");
   }
 
 
