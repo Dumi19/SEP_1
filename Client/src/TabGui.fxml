@@ -104,7 +104,7 @@
                     <columns>
                       <TableColumn prefWidth="75.0" text="Class" />
                       <TableColumn prefWidth="75.0" text="Course" />
-                        <TableColumn prefWidth="175.0" text="Assessor" />
+                        <TableColumn prefWidth="175.0" text="Examiner" />
                         <TableColumn prefWidth="84.0" text="Classroom" />
                         <TableColumn prefWidth="142.0" text="Date" />
                     </columns>

@@ -32,7 +32,7 @@ public class ManageStudentsList
   /**
    * Gets a Student object from ArrayList where the course matches.
    * @param course the position in the ArrayList
-   * @return the Student temporary ArrayList where course equals choosen course
+   * @return the Student temporary ArrayList where course equals chosen course
    */
   public ArrayList<Student> getStudentsByCourse(String course)
   {
