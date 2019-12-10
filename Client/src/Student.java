@@ -11,10 +11,10 @@ public class Student implements Serializable
    * @param studentID the VIA ID's number
    * @param studentsClass the student's class name
    */
-  public Student(String studentID, String courseCode)
+  public Student(String studentID, String studentsClass)
   {
     this.studentID = studentID;
-    this.studentsClass = courseCode;
+    this.studentsClass = studentsClass;
   }
 
   public void setStudentID(String studentID)

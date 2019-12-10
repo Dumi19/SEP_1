@@ -60,8 +60,10 @@ public class Controller2
   }
 
 
-  /** studentListMethod */
-  private void studentListMethod()
+  /**
+   * Updates the studentListView ListView with information from the students file
+   */
+    private void studentListMethod()
   {
     int currentIndex = StudentList.getSelectionModel().getSelectedIndex();
 
