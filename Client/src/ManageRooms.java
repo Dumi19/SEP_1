@@ -69,4 +69,17 @@ public class ManageRooms {
     }
 
 
+    public Room getAllRooms(int index)
+    {
+        if(index<rooms.size())
+        {
+            return rooms.get(index);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+
 }

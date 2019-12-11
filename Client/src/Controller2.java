@@ -19,8 +19,8 @@ public class Controller2
   @FXML private StudentFileAdapter adapterStudents;
   private TeachersFileAdapter adapterTeachers;
   private CourseFileAdapter adapterCourse;
-  private StudentFileAdapter adapterRooms;
-  private StudentFileAdapter adapterExam;
+  private RoomFileAdapter adapterRooms;
+  private ExamFileAdapter adapterExam;
   @FXML private TextField studentNumberField;
   @FXML private TextField classNumberField;
 
@@ -49,6 +49,7 @@ public class Controller2
     updateStudents.setOnAction(e -> updateInfo());
 
 
+
     adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
     ManageStudentsList list = adapterStudents.getAllStudents();
 
@@ -59,16 +60,31 @@ public class Controller2
 
 
 
-    adapterTeachers= new TeachersFileAdapter("Client/StudentsList.bin");
-    ManageTeachers list2 = adapterTeachers.getAllTeachers("Client/TeachersList.bin");
+    adapterTeachers= new TeachersFileAdapter("Client/TeachersList.bin");
+    ManageTeachers list2 = adapterTeachers.getAllTeachers();
+    for (int i = 0; i < list2.getNumberOfTeachers(); i++)
+    {
+      TeachersList.getItems().add(list2.getAllTeachers(i));
+    }
+
+
 
     adapterCourse= new CourseFileAdapter("Client/CoursesList.bin");
     manageCourse_list list3 = adapterCourse.getAllCourses();
+    for (int i = 0; i < list3.getNumberOfCourses(); i++)
+    {
+      CourseList.getItems().add(list3.getAllCourses(i));
+    }
 
-    adapterRooms= new StudentFileAdapter("Client/StudentsList.bin");
-    //ManageTeachers list2 = adapterTeachers.getAllStudents("Client/TeachersList.bin");
 
-    adapterRooms= new StudentFileAdapter("Client/StudentsList.bin");
+    adapterRooms= new RoomFileAdapter("Client/RoomsList.bin");
+    ManageRooms list4 = adapterRooms.getAllRooms();
+    for (int i = 0; i < list4.getNumberOfRooms(); i++)
+    {
+      RoomsList.getItems().add(list4.getAllRooms(i));
+    }
+
+    //adapterRooms= new StudentFileAdapter("Client/StudentsList.bin");
 
     //adapterExam
   }

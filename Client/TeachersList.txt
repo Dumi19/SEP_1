@@ -1,0 +1,3 @@
+Paweł, Skrzypkowski, SDJ1, true
+Dumi, Bogus, SSE, true
+Wojtek, Mielczarek, RWD, true

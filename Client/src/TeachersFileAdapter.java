@@ -16,10 +16,7 @@ public class TeachersFileAdapter
       this.fileName = fileName;
     }
 
-    /**
-     * Uses the MyFileIO class to retrieve a StudentList object with all Students.
-     * @return a StudentList object with all stored students
-     */
+
     public ManageTeachers getAllTeachers()
     {
       ManageTeachers teachers = new ManageTeachers();

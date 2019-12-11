@@ -4,9 +4,11 @@ public class Course
   private int numberOfStudents;
   private String typeOfExam;
 
-  public Course(String courseName)
+  public Course(String courseName, int numberOfStudents, String typeOfExam)
   {
     this.courseName = courseName;
+    this.numberOfStudents = numberOfStudents;
+    this.typeOfExam = typeOfExam;
   }
 
   public void setCourseName(String courseName)

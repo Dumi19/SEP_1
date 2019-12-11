@@ -37,5 +37,9 @@ public class manageCourse_list
     }
   }
 
+  public int getNumberOfCourses()
+  {
+    return courses.size();
+  }
 
 }
