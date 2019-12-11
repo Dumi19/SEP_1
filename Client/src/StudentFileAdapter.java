@@ -71,7 +71,7 @@ public class StudentFileAdapter
    }
 
 
-   public void changeCountry(int any, String studentNumber, String classNumber)
+   public void changeStudent(int any, String studentNumber, String classNumber)
    {
       ManageStudentsList students = getAllStudents();
       students.getAllStudents(any).setStudentID(studentNumber);

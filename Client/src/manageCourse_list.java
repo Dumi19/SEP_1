@@ -6,7 +6,7 @@ public class manageCourse_list
 
   public manageCourse_list()
   {
-    ArrayList<Course> courses = new ArrayList<>();
+     courses = new ArrayList<>();
   }
 
   public ArrayList<Course> getAllCourses()
@@ -24,4 +24,18 @@ public class manageCourse_list
   {
     courses.add(course);
   }
+
+  public Course getAllCourses(int index)
+  {
+    if (index<courses.size())
+    {
+      return courses.get(index);
+    }
+    else
+    {
+      return null;
+    }
+  }
+
+
 }

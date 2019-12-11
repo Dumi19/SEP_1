@@ -53,6 +53,18 @@ public class ManageTeachers
     return tempList;
   }
 
+  public Teacher getAllTeachers(int index)
+  {
+    if(index<teachers.size())
+    {
+      return teachers.get(index);
+    }
+    else
+    {
+      return null;
+    }
+  }
+
 
 
 

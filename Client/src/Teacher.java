@@ -5,6 +5,14 @@ public class Teacher
   private String teacherCourse;
   private boolean isAvaliable;
 
+  public Teacher(String firstName, String lastName, String teacherCourse, boolean isAvaliable)
+  {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.teacherCourse = teacherCourse;
+    this.isAvaliable = isAvaliable;
+  }
+
   public void setFirstName(String firstName)
   {
     this.firstName = firstName;
@@ -34,6 +42,12 @@ public class Teacher
   {
     return teacherCourse;
   }
+
+  public void setAvaliable(boolean avaliable)
+  {
+    isAvaliable = avaliable;
+  }
+
   public boolean isAvaliable()
   {
     return isAvaliable;

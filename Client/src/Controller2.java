@@ -17,9 +17,10 @@ public class Controller2
   @FXML private ListView<Course> CourseList;
   @FXML private ListView<Room> RoomsList;
   @FXML private StudentFileAdapter adapterStudents;
-  private StudentFileAdapter adapterTeachers;
-  private StudentFileAdapter adapterCourse;
+  private TeachersFileAdapter adapterTeachers;
+  private CourseFileAdapter adapterCourse;
   private StudentFileAdapter adapterRooms;
+  private StudentFileAdapter adapterExam;
   @FXML private TextField studentNumberField;
   @FXML private TextField classNumberField;
 
@@ -58,9 +59,17 @@ public class Controller2
 
 
 
-    adapterTeachers= new StudentFileAdapter("Client/StudentsList.bin");
-    adapterCourse= new StudentFileAdapter("Client/StudentsList.bin");
+    adapterTeachers= new TeachersFileAdapter("Client/StudentsList.bin");
+    ManageTeachers list2 = adapterTeachers.getAllTeachers("Client/TeachersList.bin");
+
+    adapterCourse= new CourseFileAdapter("Client/CoursesList.bin");
+    manageCourse_list list3 = adapterCourse.getAllCourses();
+
     adapterRooms= new StudentFileAdapter("Client/StudentsList.bin");
+    //ManageTeachers list2 = adapterTeachers.getAllStudents("Client/TeachersList.bin");
+
+    adapterRooms= new StudentFileAdapter("Client/StudentsList.bin");
+
     //adapterExam
   }
 
@@ -89,8 +98,8 @@ public class Controller2
     String studentNumber = studentNumberField.getText();
     String classNumber = classNumberField.getText();
 
-    adapterStudents.changeCountry(StudentList.getSelectionModel().getSelectedIndex(), studentNumber, classNumber);
-    //adapterStudents.changeCountry(studentNumber, classNumber);
+    adapterStudents.changeStudent(StudentList.getSelectionModel().getSelectedIndex(), studentNumber, classNumber);
+    //adapterStudents.changeStudent(studentNumber, classNumber);
     studentListMethod();
     studentNumberField.setText("");
     classNumberField.setText("");
