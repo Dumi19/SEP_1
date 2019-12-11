@@ -1,4 +1,6 @@
-public class Teacher
+import java.io.Serializable;
+
+public class Teacher implements Serializable
 {
   private String firstName;
   private String lastName;

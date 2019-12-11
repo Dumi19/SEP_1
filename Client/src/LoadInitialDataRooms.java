@@ -18,10 +18,10 @@ public class LoadInitialDataRooms
         {
           String temp = roomsArray[i];
           String[] tempArr = temp.split(",");
-          int roomNumber = tempArr[0];
-          int seatsNumber = tempArr[1];
-          boolean isItEquiped = tempArr[2];
-          boolean isItFree = tempArr[3];
+          int roomNumber = Integer.parseInt(tempArr[0]);
+          int seatsNumber = Integer.parseInt(tempArr[1]);
+          boolean isItEquiped = Boolean.parseBoolean(tempArr[2]);
+          boolean isItFree = Boolean.parseBoolean(tempArr[3]);
 
 
           rooms.addRoom(new Room(roomNumber, seatsNumber, isItEquiped, isItFree));

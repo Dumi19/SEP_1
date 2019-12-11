@@ -21,7 +21,7 @@ public class LoadInitialDataTeachers
           String firstName = tempArr[0];
           String lastName = tempArr[1];
           String teacherCourse = tempArr[2];
-          Boolean isAvaliable = tempArr[3];
+          boolean isAvaliable = Boolean.parseBoolean(tempArr[3]);
 
 
           teachers.addTeachers(new Teacher(firstName, lastName, teacherCourse, isAvaliable));
@@ -36,7 +36,7 @@ public class LoadInitialDataTeachers
 
       try
       {
-        mfio.writeToFile("Client/studentsList.bin", teachers);
+        mfio.writeToFile("Client/TeachersList.bin", teachers);
       }
       catch (FileNotFoundException e)
       {

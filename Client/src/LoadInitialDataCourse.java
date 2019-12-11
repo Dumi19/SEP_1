@@ -19,7 +19,7 @@ public class LoadInitialDataCourse
           String temp = courseArray[i];
           String[] tempArr = temp.split(",");
           String courseName = tempArr[0];
-          int numberOfStudents = tempArr[1];
+          int numberOfStudents = Integer.parseInt(tempArr[1]);
           String typeOfExam = tempArr[2];
 
 

@@ -1,6 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ManageRooms {
+public class ManageRooms implements Serializable
+{
     private ArrayList<Room> rooms;
 
     public ManageRooms() {

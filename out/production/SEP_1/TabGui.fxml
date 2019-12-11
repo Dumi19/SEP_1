@@ -61,7 +61,7 @@
                </children></AnchorPane>
          </content>
       </Tab>
-      <Tab text="Edit examiners">
+      <Tab text="Edit teachers">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -69,12 +69,12 @@
                   <Label layoutX="24.0" layoutY="110.0" text="Last name:" />
                   <Label layoutX="24.0" layoutY="165.0" text="Subject:" />
                   <Label layoutX="24.0" layoutY="220.0" text="Availability:" />
-                  <ListView layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
-                  <TextField layoutX="140.0" layoutY="48.0" />
-                  <TextField layoutX="140.0" layoutY="100.0" />
-                  <TextField layoutX="140.0" layoutY="160.0" />
-                  <DatePicker layoutX="140.0" layoutY="215.0" prefHeight="27.0" prefWidth="160.5" />
-                  <Button layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+                  <ListView fx:id="TeachersList" layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
+                  <TextField fx:id="teacherName" layoutX="140.0" layoutY="48.0" />
+                  <TextField fx:id="teacherLastName" layoutX="140.0" layoutY="100.0" />
+                  <TextField fx:id="subject" layoutX="140.0" layoutY="160.0" />
+                  <DatePicker fx:id="availability" layoutX="140.0" layoutY="215.0" prefHeight="27.0" prefWidth="160.5" />
+                  <Button fx:id="updateTeachers" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                </children></AnchorPane>
          </content>
       </Tab>

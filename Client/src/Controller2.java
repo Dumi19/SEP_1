@@ -23,6 +23,11 @@ public class Controller2
   private ExamFileAdapter adapterExam;
   @FXML private TextField studentNumberField;
   @FXML private TextField classNumberField;
+  @FXML private TextField teacherName;
+  @FXML private TextField teacherLastName;
+  @FXML private TextField subject;
+  @FXML private TextField availability;
+  @FXML private Button updateTeachers;
 
 
   public void initialize()
@@ -47,6 +52,8 @@ public class Controller2
     submit.setOnAction(e -> scheduleAlert());
     export.setOnAction(e -> exportAlert());
     updateStudents.setOnAction(e -> updateInfo());
+    updateTeachers.setOnAction(e -> updateInfoTeachers());
+
 
 
 
@@ -121,6 +128,20 @@ public class Controller2
     classNumberField.setText("");
   }
 
+  private void updateInfoTeachers() {
+    String firstName = teacherName.getText();
+    String lastName = teacherLastName.getText();
+    String teacherCourse = subject.getText();
+    String isAvailable = availability.getText();
+
+    adapterTeachers.changeTeacher(TeachersList.getSelectionModel().getSelectedIndex(), firstName, lastName, teacherCourse, isAvailable);
+    teachersListMethod();
+    teacherName.setText("");
+    teacherLastName.setText("");
+    subject.setText("");
+
+  }
+
 
   /**
    * Updates the studentListView ListView with information from the students file
@@ -146,5 +167,35 @@ public class Controller2
       StudentList.getSelectionModel().select(currentIndex);
     }
   }
+
+
+  private void teachersListMethod()
+  {
+    int currentIndex = TeachersList.getSelectionModel().getSelectedIndex();
+
+    TeachersList.getItems().clear();
+
+    ManageTeachers students = adapterTeachers.getAllTeachers();
+    for (int i = 0; i < students.getNumberOfTeachers(); i++)
+    {
+      TeachersList.getItems().add(students.getAllTeachers(i));
+    }
+
+    if (currentIndex == -1 && TeachersList.getItems().size() > 0)
+    {
+      TeachersList.getSelectionModel().select(0);
+    }
+    else
+    {
+      TeachersList.getSelectionModel().select(currentIndex);
+    }
+  }
+
+
+
+
+
+
+
 
 }
