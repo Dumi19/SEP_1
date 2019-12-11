@@ -52,4 +52,9 @@ public class Room
   {
     return isItFree;
   }
+
+  public String toString()
+  {
+    return roomNumber+" "+seatsNumber+" "+isItEquiped+" "+isItFree;
+  }
 }

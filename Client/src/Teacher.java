@@ -38,4 +38,9 @@ public class Teacher
   {
     return isAvaliable;
   }
+
+  public String toString()
+  {
+    return firstName+" "+lastName+" "+teacherCourse+" "+isAvaliable;
+  }
 }

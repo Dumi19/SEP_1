@@ -38,4 +38,9 @@ public class Course
   {
     return typeOfExam;
   }
+
+  public String toString()
+  {
+    return courseName+" "+numberOfStudents+" "+typeOfExam;
+  }
 }
