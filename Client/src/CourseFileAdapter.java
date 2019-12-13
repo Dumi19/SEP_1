@@ -64,7 +64,7 @@ public class CourseFileAdapter
     }
 
 
-    public void changeCourse(int any, String courseName,int numberOfStudents, String typeOfExam)
+    public void changeCourse(int any, String courseName,String numberOfStudents, String typeOfExam)
     {
       manageCourse_list courses = getAllCourses();
       courses.getAllCourses(any).setCourseName(courseName);

@@ -87,6 +87,15 @@ public class StudentFileAdapter
       saveStudents(students);
    }
 
+   public void addStudentToArray(int any, String studentNumber, String classNumber)
+   {
+      ManageStudentsList students = getAllStudents();
+
+
+      students.addStudent(new Student(studentNumber, classNumber));
+      saveStudents(students);
+   }
+
 
 
    // Add more methods to the adapter depending on what you wish to do

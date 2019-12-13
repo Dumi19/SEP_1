@@ -19,7 +19,8 @@ public class LoadInitialDataCourse
           String temp = courseArray[i];
           String[] tempArr = temp.split(",");
           String courseName = tempArr[0];
-          int numberOfStudents = Integer.parseInt(tempArr[1]);
+          String numberOfStudents = tempArr[1];
+          //int numberOfStudents = Integer.parseInt(tempArr[1]);
           String typeOfExam = tempArr[2];
 
 
@@ -35,7 +36,7 @@ public class LoadInitialDataCourse
 
       try
       {
-        mfio.writeToFile("Client/studentsList.bin", courses);
+        mfio.writeToFile("Client/CoursesList.bin", courses);
       }
       catch (FileNotFoundException e)
       {

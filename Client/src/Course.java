@@ -3,10 +3,10 @@ import java.io.Serializable;
 public class Course implements Serializable
 {
   private String courseName;
-  private int numberOfStudents;
+  private String numberOfStudents;
   private String typeOfExam;
 
-  public Course(String courseName, int numberOfStudents, String typeOfExam)
+  public Course(String courseName, String numberOfStudents, String typeOfExam)
   {
     this.courseName = courseName;
     this.numberOfStudents = numberOfStudents;
@@ -23,12 +23,12 @@ public class Course implements Serializable
     return courseName;
   }
 
-  public void setNumberOfStudents(int numberOfStudents)
+  public void setNumberOfStudents(String numberOfStudents)
   {
     this.numberOfStudents = numberOfStudents;
   }
 
-  public int getNumberOfStudents()
+  public String getNumberOfStudents()
   {
     return numberOfStudents;
   }

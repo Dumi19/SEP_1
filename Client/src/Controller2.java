@@ -28,7 +28,16 @@ public class Controller2
   @FXML private TextField subject;
   @FXML private CheckBox availabilityYes;
   @FXML private Button updateTeachers;
-
+  @FXML private TextField courseNameField;
+  @FXML private TextField courseTypeField;
+  @FXML private TextField courseNumberField;
+  @FXML private Button updateCourses;
+  @FXML private TextField roomNumberField;
+  @FXML private TextField seatsNumberField;
+  @FXML private TextField isItEquipedField;
+  @FXML private CheckBox isItFreeYes;
+  @FXML private Button updateRooms;
+  @FXML private Button addStudent;
 
   public void initialize()
   {
@@ -53,6 +62,9 @@ public class Controller2
     export.setOnAction(e -> exportAlert());
     updateStudents.setOnAction(e -> updateInfo());
     updateTeachers.setOnAction(e -> updateInfoTeachers());
+    updateCourses.setOnAction(e -> updateInfoCourses());
+    updateRooms.setOnAction(e -> updateInfoRooms());
+    addStudent.setOnAction(e -> studentAdd());
 
 
 
@@ -128,6 +140,18 @@ public class Controller2
     classNumberField.setText("");
   }
 
+  private void studentAdd()
+  {
+    String studentNumber = studentNumberField.getText();
+    String classNumber = classNumberField.getText();
+
+    adapterStudents.addStudentToArray(9,studentNumber, classNumber);
+
+
+    studentNumberField.setText("");
+    classNumberField.setText("");
+  }
+
   private void updateInfoTeachers() {
     String firstName = teacherName.getText();
     String lastName = teacherLastName.getText();
@@ -144,6 +168,38 @@ public class Controller2
     teacherName.setText("");
     teacherLastName.setText("");
     subject.setText("");
+
+  }
+
+  private void updateInfoCourses() {
+    String courseName = courseNameField.getText();
+    String numberOfStudents = courseNumberField.getText();
+    String typeOfExam = courseTypeField.getText();
+
+
+    adapterCourse.changeCourse(CourseList.getSelectionModel().getSelectedIndex(), courseName, numberOfStudents, typeOfExam);
+    courseListMethod();
+    courseNameField.setText("");
+    courseNumberField.setText("");
+    courseTypeField.setText("");
+
+  }
+
+
+  private void updateInfoRooms() {
+    int roomNumber = Integer.parseInt(roomNumberField.getText());
+    int seatsNumber = Integer.parseInt(seatsNumberField.getText());
+    boolean isItEquiped = Boolean.parseBoolean(isItEquipedField.getText());
+    boolean isItFree = Boolean.parseBoolean(isItFreeYes.getText());
+
+
+
+    adapterRooms.changeRoom(RoomsList.getSelectionModel().getSelectedIndex(), roomNumber, seatsNumber, isItEquiped, isItFree);
+    roomsListMethod();
+    roomNumberField.setText("");
+    seatsNumberField.setText("");
+    isItEquipedField.setText("");
+    isItFreeYes.setText("");
 
   }
 
@@ -174,6 +230,7 @@ public class Controller2
   }
 
 
+
   private void teachersListMethod()
   {
     int currentIndex = TeachersList.getSelectionModel().getSelectedIndex();
@@ -195,6 +252,55 @@ public class Controller2
       TeachersList.getSelectionModel().select(currentIndex);
     }
   }
+
+
+
+  private void courseListMethod()
+  {
+    int currentIndex = CourseList.getSelectionModel().getSelectedIndex();
+
+    CourseList.getItems().clear();
+
+    manageCourse_list courses = adapterCourse.getAllCourses();
+    for (int i = 0; i < courses.getNumberOfCourses(); i++)
+    {
+      CourseList.getItems().add(courses.getAllCourses(i));
+    }
+
+    if (currentIndex == -1 && CourseList.getItems().size() > 0)
+    {
+      CourseList.getSelectionModel().select(0);
+    }
+    else
+    {
+      CourseList.getSelectionModel().select(currentIndex);
+    }
+  }
+
+
+
+  private void roomsListMethod()
+  {
+    int currentIndex = RoomsList.getSelectionModel().getSelectedIndex();
+
+    RoomsList.getItems().clear();
+
+    ManageRooms rooms = adapterRooms.getAllRooms();
+    for (int i = 0; i < rooms.getNumberOfRooms(); i++)
+    {
+      RoomsList.getItems().add(rooms.getAllRooms(i));
+    }
+
+    if (currentIndex == -1 && RoomsList.getItems().size() > 0)
+    {
+      RoomsList.getSelectionModel().select(0);
+    }
+    else
+    {
+      RoomsList.getSelectionModel().select(currentIndex);
+    }
+  }
+
 
 
 

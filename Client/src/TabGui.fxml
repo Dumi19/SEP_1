@@ -6,7 +6,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -44,6 +43,7 @@
                   <TextField fx:id="studentNumberField" layoutX="140.0" layoutY="50.0" />
                   <TextField fx:id="classNumberField" layoutX="140.0" layoutY="105.0" />
                   <Button fx:id="updateStudents" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+                  <Button fx:id="addStudent" layoutX="58.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -54,11 +54,12 @@
                   <Label layoutX="24.0" layoutY="55.0" text="Name:" />
                   <Label layoutX="24.0" layoutY="110.0" text="Type:" />
                   <Label layoutX="24.0" layoutY="165.0" text="Number of students:" />
-                  <ListView layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
-                  <TextField layoutX="140.0" layoutY="50.0" />
-                  <TextField layoutX="140.0" layoutY="105.0" />
-                  <TextField layoutX="140.0" layoutY="160.0" />
-                  <Button layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+                  <ListView fx:id="CourseList" layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
+                  <TextField fx:id="courseNameField" layoutX="140.0" layoutY="50.0" />
+                  <TextField fx:id="courseTypeField" layoutX="140.0" layoutY="105.0" />
+                  <TextField fx:id="courseNumberField" layoutX="140.0" layoutY="160.0" />
+                  <Button fx:id="updateCourses" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+                  <Button layoutX="33.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
                </children></AnchorPane>
          </content>
       </Tab>
@@ -88,12 +89,11 @@
                   <Label layoutX="24.0" layoutY="110.0" text="Seats number:" />
                   <Label layoutX="24.0" layoutY="165.0" text="Is it equiped:" />
                   <Label layoutX="24.0" layoutY="246.0" text="Is it free:" />
-                  <TextField layoutX="139.0" layoutY="50.0" />
-                  <TextField layoutX="140.0" layoutY="105.0" />
-                  <TextField layoutX="140.0" layoutY="160.0" />
-                  <RadioButton layoutX="237.0" layoutY="246.0" mnemonicParsing="false" text="No" />
-                  <RadioButton layoutX="159.0" layoutY="246.0" mnemonicParsing="false" text="Yes" />
-                  <Button layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+                  <TextField fx:id="roomNumberField" layoutX="139.0" layoutY="50.0" />
+                  <TextField fx:id="seatsNumberField" layoutX="140.0" layoutY="105.0" />
+                  <TextField fx:id="isItEquipedField" layoutX="140.0" layoutY="160.0" />
+                  <Button fx:id="updateRooms" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+                  <CheckBox fx:id="isItFreeYes" layoutX="150.0" layoutY="246.0" mnemonicParsing="false" text="Yes" />
                </children></AnchorPane>
          </content>
       </Tab>
