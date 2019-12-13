@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -73,8 +74,8 @@
                   <TextField fx:id="teacherName" layoutX="140.0" layoutY="48.0" />
                   <TextField fx:id="teacherLastName" layoutX="140.0" layoutY="100.0" />
                   <TextField fx:id="subject" layoutX="140.0" layoutY="160.0" />
-                  <DatePicker fx:id="availability" layoutX="140.0" layoutY="215.0" prefHeight="27.0" prefWidth="160.5" />
                   <Button fx:id="updateTeachers" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
+                  <CheckBox fx:id="availabilityYes" layoutX="180.0" layoutY="220.0" mnemonicParsing="false" text="Yes" />
                </children></AnchorPane>
          </content>
       </Tab>

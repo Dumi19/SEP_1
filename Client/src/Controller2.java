@@ -26,7 +26,7 @@ public class Controller2
   @FXML private TextField teacherName;
   @FXML private TextField teacherLastName;
   @FXML private TextField subject;
-  @FXML private TextField availability;
+  @FXML private CheckBox availabilityYes;
   @FXML private Button updateTeachers;
 
 
@@ -132,7 +132,12 @@ public class Controller2
     String firstName = teacherName.getText();
     String lastName = teacherLastName.getText();
     String teacherCourse = subject.getText();
-    String isAvailable = availability.getText();
+
+    boolean isAvailable = false;
+
+    if(availabilityYes.isSelected())
+      isAvailable=true;
+     //isAvailable = availability.getText();
 
     adapterTeachers.changeTeacher(TeachersList.getSelectionModel().getSelectedIndex(), firstName, lastName, teacherCourse, isAvailable);
     teachersListMethod();
