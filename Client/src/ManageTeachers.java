@@ -5,10 +5,15 @@ public class ManageTeachers  implements Serializable
 {
   private ArrayList<Teacher>teachers;
 
+  /**
+   * No-argument constructor initializing the StudentList.
+   */
   public ManageTeachers()
   {
     teachers = new ArrayList<Teacher>();
   }
+
+
   public int getNumberOfTeachers()
   {
     return teachers.size();
@@ -54,6 +59,11 @@ public class ManageTeachers  implements Serializable
     return tempList;
   }
 
+  /**
+   * Gets a Teacher object from position index from the list.
+   * @param index the position in the list of the Teacher object
+   * @return the Teacher object at position index if one exists, else null
+   */
   public Teacher getAllTeachers(int index)
   {
     if(index<teachers.size())

@@ -5,6 +5,9 @@ public class ManageRooms implements Serializable
 {
     private ArrayList<Room> rooms;
 
+    /**
+     * No-argument constructor initializing the StudentList.
+     */
     public ManageRooms() {
         rooms = new ArrayList<Room>();
     }
@@ -70,7 +73,11 @@ public class ManageRooms implements Serializable
         return tempList;
     }
 
-
+    /**
+     * Gets a Room object from position index from the list.
+     * @param index the position in the list of the Room object
+     * @return the Room object at position index if one exists, else null
+     */
     public Room getAllRooms(int index)
     {
         if(index<rooms.size())

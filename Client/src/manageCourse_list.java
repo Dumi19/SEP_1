@@ -5,6 +5,9 @@ public class manageCourse_list implements Serializable
 {
   private ArrayList<Course> courses;
 
+  /**
+   * No-argument constructor initializing the StudentList.
+   */
   public manageCourse_list()
   {
      courses = new ArrayList<>();
@@ -26,6 +29,11 @@ public class manageCourse_list implements Serializable
     courses.add(course);
   }
 
+  /**
+   * Gets a Course object from position index from the list.
+   * @param index the position in the list of the Course object
+   * @return the Course object at position index if one exists, else null
+   */
   public Course getAllCourses(int index)
   {
     if (index<courses.size())
