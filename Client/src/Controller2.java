@@ -1,6 +1,8 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.time.LocalDate;
+
 public class Controller2
 {
   @FXML private ComboBox<String> courseBox;
@@ -17,10 +19,10 @@ public class Controller2
   @FXML private ListView<Course> CourseList;
   @FXML private ListView<Room> RoomsList;
   @FXML private StudentFileAdapter adapterStudents;
-  private TeachersFileAdapter adapterTeachers;
-  private CourseFileAdapter adapterCourse;
-  private RoomFileAdapter adapterRooms;
-  private ExamFileAdapter adapterExam;
+  @FXML private TeachersFileAdapter adapterTeachers;
+  @FXML private CourseFileAdapter adapterCourse;
+  @FXML private RoomFileAdapter adapterRooms;
+  @FXML private ExamFileAdapter adapterExam;
   @FXML private TextField studentNumberField;
   @FXML private TextField classNumberField;
   @FXML private TextField teacherName;
@@ -113,6 +115,14 @@ public class Controller2
   private void scheduleAlert() {
 
     //Call the exam constructor with all the parameters in the alert window
+    LocalDate date = datePicker.getValue();
+    String course = courseBox.getValue();
+    String room = classroomBox.getValue();
+    String teacher = examinerBox.getValue();
+    String student = studentsBox.getValue();
+    Exam exam = new Exam(date, course, room, teacher, student);
+
+
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Test Connection");
     alert.setHeaderText("Results:");

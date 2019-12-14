@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Exam
 {
   //Date
@@ -8,57 +10,57 @@ public class Exam
 //set get
   //Create ListView<Exam>()
   //After setting in Schedule method display them
-  private Date date;
-  private Course course;
-  private Room room;
-  private Teacher teacher;
+  private LocalDate date;
+  private String course;
+  private String room;
+  private String teacher;
+  private String students;
 
-
-
-  public Exam(Date date, Course course, Room room, Teacher teacher)
+  public Exam(LocalDate date, String course, String room, String teacher, String students)
   {
     this.date = date;
     this.course = course;
     this.room = room;
     this.teacher = teacher;
+    this.students = students;
   }
 
-  public Date getDate()
+  public LocalDate getDate()
   {
     return date;
   }
 
-  public void setDate(Date date)
+  public void setDate(LocalDate date)
   {
     this.date = date;
   }
 
-  public Course getCourse()
+  public String getCourse()
   {
     return course;
   }
 
-  public void setCourse(Course course)
+  public void setCourse(String course)
   {
     this.course = course;
   }
 
-  public Room getRoom()
+  public String getRoom()
   {
     return room;
   }
 
-  public void setRoom(Room room)
+  public void setRoom(String room)
   {
     this.room = room;
   }
 
-  public Teacher getTeacher()
+  public String getTeacher()
   {
     return teacher;
   }
 
-  public void setTeacher(Teacher teacher)
+  public void setTeacher(String teacher)
   {
     this.teacher = teacher;
   }
