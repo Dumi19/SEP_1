@@ -87,7 +87,7 @@ public class StudentFileAdapter
       saveStudents(students);
    }
 
-   public void addStudentToArray(int any, String studentNumber, String classNumber)
+   public void addStudentToArray(String studentNumber, String classNumber)
    {
       ManageStudentsList students = getAllStudents();
 

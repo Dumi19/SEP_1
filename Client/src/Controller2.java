@@ -1,7 +1,14 @@
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Controller2
 {
@@ -18,6 +25,9 @@ public class Controller2
   @FXML private ListView<Teacher> TeachersList;
   @FXML private ListView<Course> CourseList;
   @FXML private ListView<Room> RoomsList;
+  @FXML private TableView table;
+  @FXML private ArrayList<Exam> examList;
+  @FXML private ObservableList<Exam> data;
   @FXML private StudentFileAdapter adapterStudents;
   @FXML private TeachersFileAdapter adapterTeachers;
   @FXML private CourseFileAdapter adapterCourse;
@@ -40,10 +50,14 @@ public class Controller2
   @FXML private CheckBox isItFreeYes;
   @FXML private Button updateRooms;
   @FXML private Button addStudent;
-
+ public Controller2(){
+   examList = new ArrayList<>();
+   RoomsList = new ListView<>();
+   adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
+ }
   public void initialize()
   {
-
+    setTableColumns();
     courseBox.getItems().removeAll();
     courseBox.getItems().addAll("SDJ1", "SSE", "RWD1", "MSE", "SEP1", "SDJ2", "DBS1", "SWE1", "SEP2");
     courseBox.setPromptText("Choose course");
@@ -68,10 +82,6 @@ public class Controller2
     updateRooms.setOnAction(e -> updateInfoRooms());
     addStudent.setOnAction(e -> studentAdd());
 
-
-
-
-    adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
     ManageStudentsList list = adapterStudents.getAllStudents();
 
     for (int i = 0; i < list.getNumberOfStudents(); i++)
@@ -110,7 +120,24 @@ public class Controller2
     //adapterExam
   }
 
+private void setTableColumns() {
+  TableColumn dateColumn = new TableColumn("Date");
+  dateColumn.setCellValueFactory(new PropertyValueFactory("date"));
 
+  TableColumn courseColumn = new TableColumn("Course");
+  courseColumn.setCellValueFactory(new PropertyValueFactory("course"));
+
+  TableColumn classColumn = new TableColumn("Class");
+  classColumn.setCellValueFactory(new PropertyValueFactory("room"));
+
+  TableColumn teacherColumn = new TableColumn("Teacher");
+  teacherColumn.setCellValueFactory(new PropertyValueFactory("teacher"));
+
+  TableColumn studentColumn = new TableColumn("Students");
+  studentColumn.setCellValueFactory(new PropertyValueFactory("students"));
+
+  table.getColumns().setAll(dateColumn, courseColumn, classColumn, teacherColumn, studentColumn);
+}
 
   private void scheduleAlert() {
 
@@ -120,7 +147,21 @@ public class Controller2
     String room = classroomBox.getValue();
     String teacher = examinerBox.getValue();
     String student = studentsBox.getValue();
-    Exam exam = new Exam(date, course, room, teacher, student);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+    String forrmatedDate = date.format(formatter);
+    SimpleStringProperty var0 = new SimpleStringProperty((String) forrmatedDate);
+    SimpleStringProperty var1 = new SimpleStringProperty((String) course);
+    SimpleStringProperty var2 = new SimpleStringProperty((String) room);
+    SimpleStringProperty var3 = new SimpleStringProperty((String) teacher);
+    SimpleStringProperty var4 = new SimpleStringProperty((String) student);
+    Exam exam = new Exam(var0, var1, var2, var3, var4);
+    examList.add(exam);
+    data = FXCollections.observableArrayList(examList);
+    table.setItems(data);
+
+    //table.getItems().add(data);
+
+
 
 
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -155,11 +196,12 @@ public class Controller2
     String studentNumber = studentNumberField.getText();
     String classNumber = classNumberField.getText();
 
-    adapterStudents.addStudentToArray(9,studentNumber, classNumber);
+    adapterStudents.addStudentToArray(studentNumber, classNumber);
 
 
     studentNumberField.setText("");
     classNumberField.setText("");
+
   }
 
   private void updateInfoTeachers() {
