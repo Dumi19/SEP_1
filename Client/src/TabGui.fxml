@@ -58,7 +58,7 @@
                   <TextField fx:id="courseNumberField" layoutX="140.0" layoutY="105.0" />
                   <TextField fx:id="courseTypeField" layoutX="140.0" layoutY="160.0" />
                   <Button fx:id="updateCourses" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
-                  <Button layoutX="33.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="addCourse" layoutX="33.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
                </children></AnchorPane>
          </content>
       </Tab>
@@ -67,15 +67,16 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <Label layoutX="24.0" layoutY="55.0" text="Course name" />
-                  <Label layoutX="24.0" layoutY="110.0" text="Last name:" />
-                  <Label layoutX="24.0" layoutY="165.0" text="Subject:" />
-                  <Label layoutX="24.0" layoutY="220.0" text="Availability:" />
+                  <Label layoutX="24.0" layoutY="110.0" text="First name:" />
+                  <Label layoutX="24.0" layoutY="165.0" text="Last name" />
+                  <Label layoutX="23.0" layoutY="220.0" text="Availability:" />
                   <ListView fx:id="TeachersList" layoutX="335.0" layoutY="35.0" prefHeight="300.0" prefWidth="250.0" />
-                  <TextField fx:id="teacherName" layoutX="140.0" layoutY="48.0" />
-                  <TextField fx:id="teacherLastName" layoutX="140.0" layoutY="100.0" />
-                  <TextField fx:id="subject" layoutX="140.0" layoutY="160.0" />
+                  <TextField fx:id="subject" layoutX="140.0" layoutY="48.0" />
+                  <TextField fx:id="teacherName" layoutX="140.0" layoutY="100.0" />
+                  <TextField fx:id="teacherLastName" layoutX="140.0" layoutY="160.0" />
                   <Button fx:id="updateTeachers" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                   <CheckBox fx:id="availabilityYes" layoutX="180.0" layoutY="220.0" mnemonicParsing="false" text="Yes" />
+                  <Button fx:id="addTeacher" layoutX="33.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
                </children></AnchorPane>
          </content>
       </Tab>
@@ -93,6 +94,7 @@
                   <TextField fx:id="isItEquipedField" layoutX="140.0" layoutY="160.0" />
                   <Button fx:id="updateRooms" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                   <CheckBox fx:id="isItFreeYes" layoutX="150.0" layoutY="246.0" mnemonicParsing="false" text="Yes" />
+                  <Button fx:id="addRoom" layoutX="42.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
                </children></AnchorPane>
          </content>
       </Tab>

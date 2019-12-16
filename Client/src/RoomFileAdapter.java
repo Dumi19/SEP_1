@@ -80,6 +80,15 @@ public class RoomFileAdapter
     }
 
 
+  public void addTeacherToArray(int roomNumber, int seatsNumber, boolean isItEquiped, boolean isItFree)
+  {
+    ManageRooms rooms = getAllRooms();
+
+
+    rooms.addRoom(new Room(roomNumber, seatsNumber, isItEquiped, isItFree));
+    saveRoom(rooms);
+  }
+
 
     // Add more methods to the adapter depending on what you wish to do
   }

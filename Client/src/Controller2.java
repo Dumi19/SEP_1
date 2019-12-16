@@ -50,6 +50,9 @@ public class Controller2
   @FXML private CheckBox isItFreeYes;
   @FXML private Button updateRooms;
   @FXML private Button addStudent;
+  @FXML private Button addCourse;
+  @FXML private Button addTeacher;
+  @FXML private Button addRoom;
  public Controller2(){
    examList = new ArrayList<>();
    RoomsList = new ListView<>();
@@ -81,6 +84,9 @@ public class Controller2
     updateCourses.setOnAction(e -> updateInfoCourses());
     updateRooms.setOnAction(e -> updateInfoRooms());
     addStudent.setOnAction(e -> studentAdd());
+    addCourse.setOnAction(e -> courseAdd());
+    addRoom.setOnAction(e -> roomAdd());
+    addTeacher.setOnAction(e -> teacherAdd());
 
     ManageStudentsList list = adapterStudents.getAllStudents();
 
@@ -201,6 +207,67 @@ private void setTableColumns() {
 
     studentNumberField.setText("");
     classNumberField.setText("");
+
+  }
+
+  private void courseAdd()
+  {
+    String courseName = courseNameField.getText();
+    String numberOfStudents = courseNumberField.getText();
+    String typeOfExam = courseTypeField.getText();
+
+    adapterCourse.addCourseToArray(courseName, numberOfStudents, typeOfExam);
+
+
+    courseNumberField.setText("");
+    courseNameField.setText("");
+    courseTypeField.setText("");
+
+  }
+
+  private void teacherAdd()
+  {
+    String name = teacherName.getText();
+    String lastName = teacherLastName.getText();
+    String teacherCourse = subject.getText();
+    boolean availability = false;
+
+    if (availabilityYes.isSelected())
+    {
+      availability = true;
+    }
+
+    
+
+    adapterTeachers.addTeacherToArray(name, lastName, teacherCourse, availability);
+
+
+    teacherLastName.setText("");
+    teacherName.setText("");
+    subject.setText("");
+    availabilityYes.setText("");
+
+  }
+
+  private void roomAdd()
+  {
+    int number = Integer.parseInt(roomNumberField.getText());
+    int seats = Integer.parseInt(seatsNumberField.getText());
+    boolean equipped = Boolean.parseBoolean(isItEquipedField.getText());
+    boolean free = false;
+
+    if (isItFreeYes.isSelected())
+    {
+      free = true;
+    }
+
+    adapterRooms.addTeacherToArray(number, seats, equipped, free);
+
+
+    roomNumberField.setText("");
+    seatsNumberField.setText("");
+    isItEquipedField.setText("");
+    isItFreeYes.setText("");
 
   }
 
