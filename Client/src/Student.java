@@ -22,19 +22,19 @@ public class Student implements Serializable
     this.studentID = studentID;
   }
 
-  public void setCourseCode(String courseCode)
+  public void setStudentsClass(String studentsClass)
   {
-    this.studentsClass = courseCode;
+    this.studentsClass = studentsClass;
+  }
+
+  public String getStudentsClass()
+  {
+    return studentsClass;
   }
 
   public String getStudentID()
   {
     return studentID;
-  }
-
-  public String getCourseCode()
-  {
-    return studentsClass;
   }
 
   public String toString()

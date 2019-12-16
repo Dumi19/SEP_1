@@ -75,7 +75,7 @@ public class StudentFileAdapter
    {
       ManageStudentsList students = getAllStudents();
       students.getAllStudents(any).setStudentID(studentNumber);
-      students.getAllStudents(any).setCourseCode(classNumber);
+      students.getAllStudents(any).setStudentsClass(classNumber);
       /*for (int i = 0; i < students.getNumberOfStudents(); i++)
       {
          Student student = students.getAllStudents(i);
@@ -96,6 +96,20 @@ public class StudentFileAdapter
       saveStudents(students);
    }
 
+   public void removeStudentFromArray(String studentNumber, String classNumber)
+   {
+      ManageStudentsList students = getAllStudents();
+
+      for (int i = 0; i < students.getNumberOfStudents(); i++)
+      {
+         if (students.getAllStudents(i).getStudentID().equals(studentNumber))
+         {
+            students.removeStudents(i);
+         }
+      }
+
+      saveStudents(students);
+   }
 
 
    // Add more methods to the adapter depending on what you wish to do

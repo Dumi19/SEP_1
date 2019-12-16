@@ -43,6 +43,7 @@
                   <TextField fx:id="classNumberField" layoutX="140.0" layoutY="105.0" />
                   <Button fx:id="updateStudents" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                   <Button fx:id="addStudent" layoutX="58.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="removeStudents" layoutX="113.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
                </children></AnchorPane>
       </content>
     </Tab>
