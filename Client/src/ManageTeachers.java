@@ -24,9 +24,9 @@ public class ManageTeachers  implements Serializable
     teachers.add(teacher);
   }
 
-  public void removeTeacher(Teacher teacher)
+  public void removeTeacher(int index)
   {
-    teachers.remove(teacher);
+    teachers.remove(index);
   }
 
   public int getNumberOfAvaliableTeachers() //check

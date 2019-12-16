@@ -88,6 +88,21 @@ public class TeachersFileAdapter
   }
 
 
+  public void removeTeacherFromArray(String firstName, String lastName, String teacherCourse, boolean isAvaliable)
+  {
+    ManageTeachers teachers = getAllTeachers();
+
+    for (int i = 0; i < teachers.getNumberOfTeachers(); i++)
+    {
+      if (teachers.getAllTeachers(i).getFirstName().equals(firstName) && teachers.getAllTeachers(i).getLastName().equals(lastName))
+      {
+        teachers.removeTeacher(i);
+      }
+    }
+
+    saveTeachers(teachers);
+  }
+
 
   // Add more methods to the adapter depending on what you wish to do
   }
