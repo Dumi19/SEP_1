@@ -1,6 +1,5 @@
-﻿Alexandru,Jurj
-Ali,Bahrani
-Amandeep,Kaur
-Ana-Maria,Sima
-Anett,Barat
-Anton,Janto
+﻿292148, 1Z
+294274, 1X
+295432, 1Y
+296578, 1X
+290432, 1Y

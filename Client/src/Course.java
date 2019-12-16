@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Course implements Serializable
 {
   private String courseName;
-  private int numberOfStudents;
+  private String numberOfStudents;
   private String typeOfExam;
 
   /**
@@ -18,6 +18,7 @@ public class Course implements Serializable
    * @param typeOfExam the course's type of exam
    */
   public Course(String courseName, int numberOfStudents, String typeOfExam)
+  public Course(String courseName, String numberOfStudents, String typeOfExam)
   {
     this.courseName = courseName;
     this.numberOfStudents = numberOfStudents;
@@ -47,10 +48,12 @@ public class Course implements Serializable
    * @param numberOfStudents what the course's number of students which belong to course will be set to
    */
   public void setNumberOfStudents(int numberOfStudents)
+  public void setNumberOfStudents(String numberOfStudents)
   {
     this.numberOfStudents = numberOfStudents;
   }
 
+  public String getNumberOfStudents()
   /**
    * Gets the course's number of students.
    * @return the course's number of students

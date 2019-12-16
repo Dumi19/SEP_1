@@ -1,5 +1,14 @@
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Controller2
 {
@@ -16,11 +25,14 @@ public class Controller2
   @FXML private ListView<Teacher> TeachersList;
   @FXML private ListView<Course> CourseList;
   @FXML private ListView<Room> RoomsList;
+  @FXML private TableView table;
+  @FXML private ArrayList<Exam> examList;
+  @FXML private ObservableList<Exam> data;
   @FXML private StudentFileAdapter adapterStudents;
-  private TeachersFileAdapter adapterTeachers;
-  private CourseFileAdapter adapterCourse;
-  private RoomFileAdapter adapterRooms;
-  private ExamFileAdapter adapterExam;
+  @FXML private TeachersFileAdapter adapterTeachers;
+  @FXML private CourseFileAdapter adapterCourse;
+  @FXML private RoomFileAdapter adapterRooms;
+  @FXML private ExamFileAdapter adapterExam;
   @FXML private TextField studentNumberField;
   @FXML private TextField classNumberField;
   @FXML private TextField teacherName;
@@ -28,11 +40,24 @@ public class Controller2
   @FXML private TextField subject;
   @FXML private CheckBox availabilityYes;
   @FXML private Button updateTeachers;
-
-
+  @FXML private TextField courseNameField;
+  @FXML private TextField courseTypeField;
+  @FXML private TextField courseNumberField;
+  @FXML private Button updateCourses;
+  @FXML private TextField roomNumberField;
+  @FXML private TextField seatsNumberField;
+  @FXML private TextField isItEquipedField;
+  @FXML private CheckBox isItFreeYes;
+  @FXML private Button updateRooms;
+  @FXML private Button addStudent;
+ public Controller2(){
+   examList = new ArrayList<>();
+   RoomsList = new ListView<>();
+   adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
+ }
   public void initialize()
   {
-
+    setTableColumns();
     courseBox.getItems().removeAll();
     courseBox.getItems().addAll("SDJ1", "SSE", "RWD1", "MSE", "SEP1", "SDJ2", "DBS1", "SWE1", "SEP2");
     courseBox.setPromptText("Choose course");
@@ -53,11 +78,10 @@ public class Controller2
     export.setOnAction(e -> exportAlert());
     updateStudents.setOnAction(e -> updateInfo());
     updateTeachers.setOnAction(e -> updateInfoTeachers());
+    updateCourses.setOnAction(e -> updateInfoCourses());
+    updateRooms.setOnAction(e -> updateInfoRooms());
+    addStudent.setOnAction(e -> studentAdd());
 
-
-
-
-    adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
     ManageStudentsList list = adapterStudents.getAllStudents();
 
     for (int i = 0; i < list.getNumberOfStudents(); i++)
@@ -96,11 +120,50 @@ public class Controller2
     //adapterExam
   }
 
+private void setTableColumns() {
+  TableColumn dateColumn = new TableColumn("Date");
+  dateColumn.setCellValueFactory(new PropertyValueFactory("date"));
 
+  TableColumn courseColumn = new TableColumn("Course");
+  courseColumn.setCellValueFactory(new PropertyValueFactory("course"));
+
+  TableColumn classColumn = new TableColumn("Class");
+  classColumn.setCellValueFactory(new PropertyValueFactory("room"));
+
+  TableColumn teacherColumn = new TableColumn("Teacher");
+  teacherColumn.setCellValueFactory(new PropertyValueFactory("teacher"));
+
+  TableColumn studentColumn = new TableColumn("Students");
+  studentColumn.setCellValueFactory(new PropertyValueFactory("students"));
+
+  table.getColumns().setAll(dateColumn, courseColumn, classColumn, teacherColumn, studentColumn);
+}
 
   private void scheduleAlert() {
 
     //Call the exam constructor with all the parameters in the alert window
+    LocalDate date = datePicker.getValue();
+    String course = courseBox.getValue();
+    String room = classroomBox.getValue();
+    String teacher = examinerBox.getValue();
+    String student = studentsBox.getValue();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+    String forrmatedDate = date.format(formatter);
+    SimpleStringProperty var0 = new SimpleStringProperty((String) forrmatedDate);
+    SimpleStringProperty var1 = new SimpleStringProperty((String) course);
+    SimpleStringProperty var2 = new SimpleStringProperty((String) room);
+    SimpleStringProperty var3 = new SimpleStringProperty((String) teacher);
+    SimpleStringProperty var4 = new SimpleStringProperty((String) student);
+    Exam exam = new Exam(var0, var1, var2, var3, var4);
+    examList.add(exam);
+    data = FXCollections.observableArrayList(examList);
+    table.setItems(data);
+
+    //table.getItems().add(data);
+
+
+
+
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Test Connection");
     alert.setHeaderText("Results:");
@@ -128,6 +191,19 @@ public class Controller2
     classNumberField.setText("");
   }
 
+  private void studentAdd()
+  {
+    String studentNumber = studentNumberField.getText();
+    String classNumber = classNumberField.getText();
+
+    adapterStudents.addStudentToArray(studentNumber, classNumber);
+
+
+    studentNumberField.setText("");
+    classNumberField.setText("");
+
+  }
+
   private void updateInfoTeachers() {
     String firstName = teacherName.getText();
     String lastName = teacherLastName.getText();
@@ -144,6 +220,38 @@ public class Controller2
     teacherName.setText("");
     teacherLastName.setText("");
     subject.setText("");
+
+  }
+
+  private void updateInfoCourses() {
+    String courseName = courseNameField.getText();
+    String numberOfStudents = courseNumberField.getText();
+    String typeOfExam = courseTypeField.getText();
+
+
+    adapterCourse.changeCourse(CourseList.getSelectionModel().getSelectedIndex(), courseName, numberOfStudents, typeOfExam);
+    courseListMethod();
+    courseNameField.setText("");
+    courseNumberField.setText("");
+    courseTypeField.setText("");
+
+  }
+
+
+  private void updateInfoRooms() {
+    int roomNumber = Integer.parseInt(roomNumberField.getText());
+    int seatsNumber = Integer.parseInt(seatsNumberField.getText());
+    boolean isItEquiped = Boolean.parseBoolean(isItEquipedField.getText());
+    boolean isItFree = Boolean.parseBoolean(isItFreeYes.getText());
+
+
+
+    adapterRooms.changeRoom(RoomsList.getSelectionModel().getSelectedIndex(), roomNumber, seatsNumber, isItEquiped, isItFree);
+    roomsListMethod();
+    roomNumberField.setText("");
+    seatsNumberField.setText("");
+    isItEquipedField.setText("");
+    isItFreeYes.setText("");
 
   }
 
@@ -174,6 +282,7 @@ public class Controller2
   }
 
 
+
   private void teachersListMethod()
   {
     int currentIndex = TeachersList.getSelectionModel().getSelectedIndex();
@@ -195,5 +304,61 @@ public class Controller2
       TeachersList.getSelectionModel().select(currentIndex);
     }
   }
+
+
+
+  private void courseListMethod()
+  {
+    int currentIndex = CourseList.getSelectionModel().getSelectedIndex();
+
+    CourseList.getItems().clear();
+
+    manageCourse_list courses = adapterCourse.getAllCourses();
+    for (int i = 0; i < courses.getNumberOfCourses(); i++)
+    {
+      CourseList.getItems().add(courses.getAllCourses(i));
+    }
+
+    if (currentIndex == -1 && CourseList.getItems().size() > 0)
+    {
+      CourseList.getSelectionModel().select(0);
+    }
+    else
+    {
+      CourseList.getSelectionModel().select(currentIndex);
+    }
+  }
+
+
+
+  private void roomsListMethod()
+  {
+    int currentIndex = RoomsList.getSelectionModel().getSelectedIndex();
+
+    RoomsList.getItems().clear();
+
+    ManageRooms rooms = adapterRooms.getAllRooms();
+    for (int i = 0; i < rooms.getNumberOfRooms(); i++)
+    {
+      RoomsList.getItems().add(rooms.getAllRooms(i));
+    }
+
+    if (currentIndex == -1 && RoomsList.getItems().size() > 0)
+    {
+      RoomsList.getSelectionModel().select(0);
+    }
+    else
+    {
+      RoomsList.getSelectionModel().select(currentIndex);
+    }
+  }
+
+
+
+
+
+
+
+
 
 }

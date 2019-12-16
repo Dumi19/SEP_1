@@ -36,7 +36,7 @@ public class LoadInitialDataRooms
 
       try
       {
-        mfio.writeToFile("Client/studentsList.bin", rooms);
+        mfio.writeToFile("Client/RoomsList.bin", rooms);
       }
       catch (FileNotFoundException e)
       {
