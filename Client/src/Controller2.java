@@ -50,6 +50,13 @@ public class Controller2
   @FXML private CheckBox isItFreeYes;
   @FXML private Button updateRooms;
   @FXML private Button addStudent;
+  @FXML private Button addCourse;
+  @FXML private Button addTeacher;
+  @FXML private Button addRoom;
+  @FXML private Button removeStudents;
+
+
+
  public Controller2(){
    examList = new ArrayList<>();
    RoomsList = new ListView<>();
@@ -81,6 +88,10 @@ public class Controller2
     updateCourses.setOnAction(e -> updateInfoCourses());
     updateRooms.setOnAction(e -> updateInfoRooms());
     addStudent.setOnAction(e -> studentAdd());
+    addCourse.setOnAction(e -> courseAdd());
+    addRoom.setOnAction(e -> roomAdd());
+    addTeacher.setOnAction(e -> teacherAdd());
+    removeStudents.setOnAction(e -> removeStudent());
 
     ManageStudentsList list = adapterStudents.getAllStudents();
 
@@ -91,7 +102,7 @@ public class Controller2
 
 
 
-    adapterTeachers= new TeachersFileAdapter("Client/TeachersList.bin");
+    adapterTeachers = new TeachersFileAdapter("Client/TeachersList.bin");
     ManageTeachers list2 = adapterTeachers.getAllTeachers();
     for (int i = 0; i < list2.getNumberOfTeachers(); i++)
     {
@@ -100,7 +111,7 @@ public class Controller2
 
 
 
-    adapterCourse= new CourseFileAdapter("Client/CoursesList.bin");
+    adapterCourse = new CourseFileAdapter("Client/CoursesList.bin");
     manageCourse_list list3 = adapterCourse.getAllCourses();
     for (int i = 0; i < list3.getNumberOfCourses(); i++)
     {
@@ -108,16 +119,14 @@ public class Controller2
     }
 
 
-    adapterRooms= new RoomFileAdapter("Client/RoomsList.bin");
+    adapterRooms = new RoomFileAdapter("Client/RoomsList.bin");
     ManageRooms list4 = adapterRooms.getAllRooms();
     for (int i = 0; i < list4.getNumberOfRooms(); i++)
     {
       RoomsList.getItems().add(list4.getAllRooms(i));
     }
 
-    //adapterRooms= new StudentFileAdapter("Client/StudentsList.bin");
 
-    //adapterExam
   }
 
 private void setTableColumns() {
@@ -198,9 +207,81 @@ private void setTableColumns() {
 
     adapterStudents.addStudentToArray(studentNumber, classNumber);
 
-
+    studentListMethod();
     studentNumberField.setText("");
     classNumberField.setText("");
+
+  }
+
+  private void removeStudent() {
+
+    String studentNumber = StudentList.getSelectionModel().getSelectedItem().getStudentID();
+    String classNumber = StudentList.getSelectionModel().getSelectedItem().getStudentsClass();
+
+    adapterStudents.removeStudentFromArray(studentNumber, classNumber);
+
+    studentListMethod();
+
+  }
+
+  private void courseAdd()
+  {
+    String courseName = courseNameField.getText();
+    String numberOfStudents = courseNumberField.getText();
+    String typeOfExam = courseTypeField.getText();
+
+    adapterCourse.addCourseToArray(courseName, numberOfStudents, typeOfExam);
+
+
+    courseNumberField.setText("");
+    courseNameField.setText("");
+    courseTypeField.setText("");
+
+  }
+
+  private void teacherAdd()
+  {
+    String name = teacherName.getText();
+    String lastName = teacherLastName.getText();
+    String teacherCourse = subject.getText();
+    boolean availability = false;
+
+    if (availabilityYes.isSelected())
+    {
+      availability = true;
+    }
+
+    
+
+    adapterTeachers.addTeacherToArray(name, lastName, teacherCourse, availability);
+
+
+    teacherLastName.setText("");
+    teacherName.setText("");
+    subject.setText("");
+    availabilityYes.setText("");
+
+  }
+
+  private void roomAdd()
+  {
+    int number = Integer.parseInt(roomNumberField.getText());
+    int seats = Integer.parseInt(seatsNumberField.getText());
+    boolean equipped = Boolean.parseBoolean(isItEquipedField.getText());
+    boolean free = false;
+
+    if (isItFreeYes.isSelected())
+    {
+      free = true;
+    }
+
+    adapterRooms.addTeacherToArray(number, seats, equipped, free);
+
+
+    roomNumberField.setText("");
+    seatsNumberField.setText("");
+    isItEquipedField.setText("");
+    isItFreeYes.setText("");
 
   }
 

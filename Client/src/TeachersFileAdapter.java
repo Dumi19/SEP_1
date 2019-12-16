@@ -78,8 +78,17 @@ public class TeachersFileAdapter
       saveTeachers(teachers);
     }
 
+  public void addTeacherToArray(String firstName, String lastName, String teacherCourse, boolean isAvaliable)
+  {
+    ManageTeachers teachers = getAllTeachers();
 
 
-    // Add more methods to the adapter depending on what you wish to do
+    teachers.addTeachers(new Teacher(firstName, lastName, teacherCourse, isAvaliable));
+    saveTeachers(teachers);
+  }
+
+
+
+  // Add more methods to the adapter depending on what you wish to do
   }
 

@@ -40,7 +40,7 @@ public class ManageStudentsList implements Serializable
     ArrayList<Student> tempList = new ArrayList<Student>();
     for (int i = 0; i < students.size(); i++)
     {
-      if (students.get(i).getCourseCode().equals(course))
+      if (students.get(i).getStudentsClass().equals(course))
       {
         tempList.add(students.get(i));
       }
@@ -59,11 +59,10 @@ public class ManageStudentsList implements Serializable
 
   /**
    * Removes a Student from the list.
-   * @param student the student to remove from the list
    */
-  public void removeStudents(Student student)
+  public void removeStudents(int index)
   {
-    students.remove(student);
+    students.remove(index);
   }
 
 

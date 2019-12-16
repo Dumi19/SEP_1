@@ -81,9 +81,19 @@ public class CourseFileAdapter
       saveCourses(courses);
     }
 
+  public void addCourseToArray(String courseName, String numberOfStudents, String typeOfExam)
+  {
+    manageCourse_list courses = getAllCourses();
 
 
-    // Add more methods to the adapter depending on what you wish to do
+    courses.addCourse(new Course(courseName, numberOfStudents, typeOfExam));
+    saveCourses(courses);
+  }
+
+
+
+
+  // Add more methods to the adapter depending on what you wish to do
   }
 
 
