@@ -4,11 +4,19 @@ public class ManageDate
 {
   private ArrayList<Date> dates;
 
+  /**
+   * No-argument constructor initializing the StudentList.
+   */
   public ManageDate()
   {
     dates = new ArrayList<Date>();
   }
 
+  /**
+   * Gets a Date object from position index from the list.
+   * @param index the position in the list of the Date object
+   * @return the Date object at position index if one exists, else null
+   */
   public Date getAllDates()                 //We have to check it
   {
     for (int i = 0; i <dates.size() ; i++)

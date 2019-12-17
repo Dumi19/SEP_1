@@ -1,6 +1,11 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * An adapter to the teachers list file, making it easy to retrieve and store information.
+ * @author SEP Killers
+ * @version 1.0
+ */
 public class TeachersFileAdapter
 {
     private MyFileIO mfio;
@@ -8,7 +13,7 @@ public class TeachersFileAdapter
 
     /**
      * 1-argument constructor setting the file name.
-     * @param fileName the name and path of the file where students will be saved and retrieved
+     * @param fileName the name and path of the file where teachers will be saved and retrieved
      */
     public TeachersFileAdapter(String fileName)
     {
@@ -16,7 +21,10 @@ public class TeachersFileAdapter
       this.fileName = fileName;
     }
 
-
+  /**
+   * Uses the MyFileIO class to retrieve a TeachersList object with all Teachers.
+   * @return a TeachersList object with all stored Teachers
+   */
     public ManageTeachers getAllTeachers()
     {
       ManageTeachers teachers = new ManageTeachers();
@@ -41,8 +49,10 @@ public class TeachersFileAdapter
     }
 
 
-
-
+  /**
+   * Use the MyFileIO class to save some teachers.
+   * @param teachers the list of teachers that will be saved
+   */
     public void saveTeachers( ManageTeachers teachers)
     {
       try
@@ -59,7 +69,14 @@ public class TeachersFileAdapter
       }
     }
 
-
+  /**
+   * Uses the MyFileIO class to change the first name, last name, course which teacher teaches and availability of the teacher.
+   * @param any the teacher's index in the array list
+   * @param firstName the first name of the teacher
+   * @param lastName the last name of the teacher
+   * @param teacherCourse the course which teacher teaches
+   * @param isAvaliable the availability of the teacher
+   */
     public void changeTeacher(int any, String firstName, String lastName, String teacherCourse, boolean isAvaliable)
     {
       ManageTeachers teachers = getAllTeachers();

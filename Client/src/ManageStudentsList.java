@@ -6,7 +6,7 @@ public class ManageStudentsList implements Serializable
   private ArrayList<Student> students;
 
   /**
-   * No-argument constructor initializing the StudentList.
+   * No-argument constructor initializing the ManageStudentList.
    */
   public ManageStudentsList()
   {

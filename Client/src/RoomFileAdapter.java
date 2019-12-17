@@ -1,13 +1,21 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * An adapter to the rooms list file, making it easy to retrieve and store information.
+ * @author SEP Killers
+ * @version 1.0
+ */
 public class RoomFileAdapter
 {
 
     private MyFileIO mfio;
     private String fileName;
 
-
+  /**
+   * 1-argument constructor setting the file name.
+   * @param fileName the name and path of the file where rooms will be saved and retrieved
+   */
     public RoomFileAdapter(String fileName)
     {
       mfio = new MyFileIO();
@@ -15,8 +23,8 @@ public class RoomFileAdapter
     }
 
     /**
-     * Uses the MyFileIO class to retrieve a StudentList object with all Students.
-     * @return a StudentList object with all stored students
+     * Uses the MyFileIO class to retrieve a RoomsList object with all Rooms.
+     * @return a RoomsList object with all stored rooms
      */
     public ManageRooms getAllRooms()
     {
@@ -41,9 +49,10 @@ public class RoomFileAdapter
       return rooms;
     }
 
-
-
-
+  /**
+   * Use the MyFileIO class to save some teachers.
+   * @param rooms the list of teachers that will be saved
+   */
     public void saveRoom(ManageRooms rooms)
     {
       try
@@ -60,7 +69,14 @@ public class RoomFileAdapter
       }
     }
 
-
+  /**
+   * Uses the MyFileIO class to change the room number, seats number, equipment(available or not), availability
+   * @param any the room's index in the array list
+   * @param roomNumber number of the room
+   * @param seatsNumber number of seats in room
+   * @param isItEquiped equipment of the room
+   * @param isItFree availability of the room
+   */
     public void changeRoom(int any, int roomNumber, int seatsNumber, boolean isItEquiped, boolean isItFree)
     {
       ManageRooms rooms = getAllRooms();

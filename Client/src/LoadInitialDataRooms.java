@@ -1,6 +1,14 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * A simple program used for importing data. It reads a text file with room
+ * information, creates a RoomList object with all rooms read from the file,
+ * and saves it as a binary file. The text file must have information of one room
+ * on each line, and each line should be in the format: roomNumber, seatsNumber, isItEquiped, isItFree
+ * @author SEP Killers
+ * @version 1.0
+ */
 public class LoadInitialDataRooms
 {
 

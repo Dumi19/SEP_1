@@ -1,6 +1,14 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * A simple program used for importing data. It reads a text file with teacher
+ * information, creates a TeachersList object with all teachers read from the file,
+ * and saves it as a binary file. The text file must have information of one teacher
+ * on each line, and each line should be in the format: firstName,lastName,teacherCourse, isAvaliable
+ * @author SEP Killers
+ * @version 1.0
+ */
 public class LoadInitialDataTeachers
 {
 

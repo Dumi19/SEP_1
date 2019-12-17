@@ -5,10 +5,18 @@ public class ManageTeachers  implements Serializable
 {
   private ArrayList<Teacher>teachers;
 
+  /**
+   * No-argument constructor initializing the StudentList.
+   */
   public ManageTeachers()
   {
     teachers = new ArrayList<Teacher>();
   }
+
+
+  /**
+   * Returns number of teachers in the ArrayList.
+   */
   public int getNumberOfTeachers()
   {
     return teachers.size();
@@ -19,11 +27,18 @@ public class ManageTeachers  implements Serializable
     return teachers;
   }
 
+  /**
+   * Adds a Teacher to the list.
+   * @param teacher the teacher to add to the list
+   */
   public void addTeachers(Teacher teacher)
   {
     teachers.add(teacher);
   }
 
+  /**
+   * Removes a Student from the list.
+   */
   public void removeTeacher(int index)
   {
     teachers.remove(index);
