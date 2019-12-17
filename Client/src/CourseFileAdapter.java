@@ -4,72 +4,71 @@ import java.io.IOException;
 public class CourseFileAdapter
 {
 
-    private MyFileIO mfio;
-    private String fileName;
+  private MyFileIO mfio;
+  private String fileName;
 
-    /**
-     * 1-argument constructor setting the file name.
-     * @param fileName the name and path of the file where students will be saved and retrieved
-     */
-    public CourseFileAdapter(String fileName)
+  /**
+   * 1-argument constructor setting the file name.
+   *
+   * @param fileName the name and path of the file where students will be saved and retrieved
+   */
+  public CourseFileAdapter(String fileName)
+  {
+    mfio = new MyFileIO();
+    this.fileName = fileName;
+  }
+
+  /**
+   * Uses the MyFileIO class to retrieve a StudentList object with all Students.
+   *
+   * @return a StudentList object with all stored students
+   */
+  public manageCourse_list getAllCourses()
+  {
+    manageCourse_list courses = new manageCourse_list();
+
+    try
     {
-      mfio = new MyFileIO();
-      this.fileName = fileName;
+      courses = (manageCourse_list) mfio.readObjectFromFile(fileName);
     }
-
-    /**
-     * Uses the MyFileIO class to retrieve a StudentList object with all Students.
-     * @return a StudentList object with all stored students
-     */
-    public manageCourse_list getAllCourses()
+    catch (FileNotFoundException e)
     {
-      manageCourse_list courses = new manageCourse_list();
-
-      try
-      {
-        courses = (manageCourse_list) mfio.readObjectFromFile(fileName);
-      }
-      catch (FileNotFoundException e)
-      {
-        System.out.println("File not found");
-      }
-      catch (IOException e)
-      {
-        System.out.println("IO Error reading file");
-      }
-      catch (ClassNotFoundException e)
-      {
-        System.out.println("Class Not Found");
-      }
-      return courses;
+      System.out.println("File not found");
     }
-
-
-
-
-    public void saveCourses( manageCourse_list courses)
+    catch (IOException e)
     {
-      try
-      {
-        mfio.writeToFile(fileName, courses);
-      }
-      catch (FileNotFoundException e)
-      {
-        System.out.println("File not found");
-      }
-      catch (IOException e)
-      {
-        System.out.println("IO Error writing to file");
-      }
+      System.out.println("IO Error reading file");
     }
-
-
-    public void changeCourse(int any, String courseName,String numberOfStudents, String typeOfExam)
+    catch (ClassNotFoundException e)
     {
-      manageCourse_list courses = getAllCourses();
-      courses.getAllCourses(any).setCourseName(courseName);
-      courses.getAllCourses(any).setNumberOfStudents(numberOfStudents);
-      courses.getAllCourses(any).setTypeOfExam(typeOfExam);
+      System.out.println("Class Not Found");
+    }
+    return courses;
+  }
+
+  public void saveCourses(manageCourse_list courses)
+  {
+    try
+    {
+      mfio.writeToFile(fileName, courses);
+    }
+    catch (FileNotFoundException e)
+    {
+      System.out.println("File not found");
+    }
+    catch (IOException e)
+    {
+      System.out.println("IO Error writing to file");
+    }
+  }
+
+  public void changeCourse(int any, String courseName, String numberOfStudents,
+      String typeOfExam)
+  {
+    manageCourse_list courses = getAllCourses();
+    courses.getAllCourses(any).setCourseName(courseName);
+    courses.getAllCourses(any).setNumberOfStudents(numberOfStudents);
+    courses.getAllCourses(any).setTypeOfExam(typeOfExam);
       /*for (int i = 0; i < students.getNumberOfStudents(); i++)
       {
          Student student = students.getAllStudents(i);
@@ -78,19 +77,20 @@ public class CourseFileAdapter
             student.setCourseCode(classNumber);
 
       }*/
-      saveCourses(courses);
-    }
+    saveCourses(courses);
+  }
 
-  public void addCourseToArray(String courseName, String numberOfStudents, String typeOfExam)
+  public void addCourseToArray(String courseName, String numberOfStudents,
+      String typeOfExam)
   {
     manageCourse_list courses = getAllCourses();
-
 
     courses.addCourse(new Course(courseName, numberOfStudents, typeOfExam));
     saveCourses(courses);
   }
 
-  public void removeCourseFromArray(String courseName, String numberOfStudents, String typeOfExam)
+  public void removeCourseFromArray(String courseName, String numberOfStudents,
+      String typeOfExam)
   {
     manageCourse_list courses = getAllCourses();
 
@@ -105,11 +105,7 @@ public class CourseFileAdapter
     saveCourses(courses);
   }
 
-
-
-
-
   // Add more methods to the adapter depending on what you wish to do
-  }
+}
 
 

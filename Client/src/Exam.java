@@ -12,7 +12,9 @@ public class Exam
   private SimpleStringProperty teacher;
   private SimpleStringProperty students;
 
-  public Exam(SimpleStringProperty date, SimpleStringProperty course, SimpleStringProperty room, SimpleStringProperty teacher, SimpleStringProperty students)
+  public Exam(SimpleStringProperty date, SimpleStringProperty course,
+      SimpleStringProperty room, SimpleStringProperty teacher,
+      SimpleStringProperty students)
   {
     this.date = date;
     this.course = course;

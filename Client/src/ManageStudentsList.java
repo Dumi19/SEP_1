@@ -15,12 +15,13 @@ public class ManageStudentsList implements Serializable
 
   /**
    * Gets a Student object from position index from the list.
+   *
    * @param index the position in the list of the Student object
    * @return the Student object at position index if one exists, else null
    */
   public Student getAllStudents(int index)
   {
-    if(index<students.size())
+    if (index < students.size())
     {
       return students.get(index);
     }
@@ -32,6 +33,7 @@ public class ManageStudentsList implements Serializable
 
   /**
    * Gets a Student object from ArrayList where the course matches.
+   *
    * @param course the position in the ArrayList
    * @return the Student temporary ArrayList where course equals chosen course
    */
@@ -50,6 +52,7 @@ public class ManageStudentsList implements Serializable
 
   /**
    * Adds a Student to the list.
+   *
    * @param student the student to add to the list
    */
   public void addStudent(Student student)
@@ -64,7 +67,6 @@ public class ManageStudentsList implements Serializable
   {
     students.remove(index);
   }
-
 
   /**
    * Returns number of students in the ArrayList.

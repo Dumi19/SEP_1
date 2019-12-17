@@ -7,16 +7,16 @@ public class manageCourse_list implements Serializable
 
   public manageCourse_list()
   {
-     courses = new ArrayList<>();
+    courses = new ArrayList<>();
   }
 
   public ArrayList<Course> getAllCourses()
   {
-//   // for (int i = 0; i < courses.size(); i++)
-//    {
-//        return courses.get(i);
-//    }
-//    return null; //I don't know if this part is correct
+    //   // for (int i = 0; i < courses.size(); i++)
+    //    {
+    //        return courses.get(i);
+    //    }
+    //    return null; //I don't know if this part is correct
 
     return courses;
   }
@@ -28,7 +28,7 @@ public class manageCourse_list implements Serializable
 
   public Course getAllCourses(int index)
   {
-    if (index<courses.size())
+    if (index < courses.size())
     {
       return courses.get(index);
     }
@@ -48,4 +48,8 @@ public class manageCourse_list implements Serializable
     courses.remove(index);
   }
 
+  public Course getOneCourseElement(int index)
+  {
+    return courses.get(index);
+  }
 }

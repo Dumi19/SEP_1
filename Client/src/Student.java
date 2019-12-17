@@ -5,10 +5,10 @@ public class Student implements Serializable
   private String studentID;
   private String studentsClass;
 
-
   /**
    * Three-argument constructor.
-   * @param studentID the VIA ID's number
+   *
+   * @param studentID     the VIA ID's number
    * @param studentsClass the student's class name
    */
   public Student(String studentID, String studentsClass)
@@ -39,8 +39,7 @@ public class Student implements Serializable
 
   public String toString()
   {
-    return studentID +" " + studentsClass ;
+    return studentID + " " + studentsClass;
   }
-
 
 }
