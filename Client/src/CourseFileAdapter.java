@@ -1,6 +1,11 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * An adapter to the courses list file, making it easy to retrieve and store information.
+ * @author SEP Killers
+ * @version 1.0
+ */
 public class CourseFileAdapter
 {
 
@@ -9,7 +14,7 @@ public class CourseFileAdapter
 
     /**
      * 1-argument constructor setting the file name.
-     * @param fileName the name and path of the file where students will be saved and retrieved
+     * @param fileName the name and path of the file where courses will be saved and retrieved
      */
     public CourseFileAdapter(String fileName)
     {
@@ -18,8 +23,8 @@ public class CourseFileAdapter
     }
 
     /**
-     * Uses the MyFileIO class to retrieve a StudentList object with all Students.
-     * @return a StudentList object with all stored students
+     * Uses the MyFileIO class to retrieve a CourseList object with all Courses.
+     * @return a courseList object with all stored courses
      */
     public manageCourse_list getAllCourses()
     {
@@ -44,9 +49,10 @@ public class CourseFileAdapter
       return courses;
     }
 
-
-
-
+  /**
+   * Use the MyFileIO class to save some courses.
+   * @param courses the list of courses that will be saved
+   */
     public void saveCourses( manageCourse_list courses)
     {
       try
@@ -63,7 +69,13 @@ public class CourseFileAdapter
       }
     }
 
-
+  /**
+   * Uses the MyFileIO class to change the name of the course, number of students that belong to course and type of exam.
+   * @param any the course's index in the array list
+   * @param courseName the name of the course
+   * @param numberOfStudents the number of students which belong to course
+   * @param typeOfExam the type of exam(oral/written)
+   */
     public void changeCourse(int any, String courseName,String numberOfStudents, String typeOfExam)
     {
       manageCourse_list courses = getAllCourses();

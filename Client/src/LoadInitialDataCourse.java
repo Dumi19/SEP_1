@@ -1,6 +1,14 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * A simple program used for importing data. It reads a text file with course
+ * information, creates a courseList object with all courses read from the file,
+ * and saves it as a binary file. The text file must have information of one course
+ * on each line, and each line should be in the format: courseName, numberOfStudents, typeOfExams.
+ * @author SEP Killers
+ * @version 1.0
+ */
 public class LoadInitialDataCourse
 {
 

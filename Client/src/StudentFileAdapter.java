@@ -22,8 +22,8 @@ public class StudentFileAdapter
    }
 
    /**
-    * Uses the MyFileIO class to retrieve a StudentList object with all Students.
-    * @return a StudentList object with all stored students
+    * Uses the MyFileIO class to retrieve a studentList object with all Students.
+    * @return a studentList object with all stored students
     */
    public ManageStudentsList getAllStudents()
    {
@@ -70,7 +70,12 @@ public class StudentFileAdapter
       }
    }
 
-
+   /**
+    * Uses the MyFileIO class to change the VIA ID number of the student and class number
+    * @param any the student's index in the array list
+    * @param studentNumber the VIA ID number of the student
+    * @param classNumber the student's new country
+    */
    public void changeStudent(int any, String studentNumber, String classNumber)
    {
       ManageStudentsList students = getAllStudents();

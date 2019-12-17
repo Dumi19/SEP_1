@@ -31,12 +31,11 @@ public class Student implements Serializable
     this.studentID = studentID;
   }
 
-  public void setStudentsClass(String studentsClass)
   /**
    * Sets the student's class.
-   * @param courseCode what the student's class will be set to
+   * @param studentsClass what the student's class will be set to
    */
-  public void setCourseCode(String courseCode)
+  public void setStudentsClass(String studentsClass)
   {
     this.studentsClass = studentsClass;
   }
