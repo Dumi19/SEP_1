@@ -36,11 +36,10 @@ public class ManageTeachers  implements Serializable
     teachers.add(teacher);
   }
 
-  public void removeTeacher(int index)
   /**
-   * Removes a Teacher from the list.
+   * Removes a Student from the list.
    */
-  public void removeTeacher(Teacher teacher)
+  public void removeTeacher(int index)
   {
     teachers.remove(index);
   }
@@ -70,11 +69,6 @@ public class ManageTeachers  implements Serializable
     return tempList;
   }
 
-  /**
-   * Gets a Teacher object from position index from the list.
-   * @param index the position in the list of the Teacher object
-   * @return the Teacher object at position index if one exists, else null
-   */
   public Teacher getAllTeachers(int index)
   {
     if(index<teachers.size())

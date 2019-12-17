@@ -67,7 +67,7 @@ public class Controller2
   {
     setTableColumns();
     courseBox.getItems().removeAll();
-    courseBox.getItems().addAll("SDJ1", "SSE", "RWD1", "MSE", "SEP1", "SDJ2", "DBS1", "SWE1", "SEP2");
+    courseBox.getItems().addAll();
     courseBox.setPromptText("Choose course");
 
     studentsBox.getItems().removeAll();
