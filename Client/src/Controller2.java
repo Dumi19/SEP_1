@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import persistence.MyXmlConverter;
+import persistence.XmlConverterException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -25,12 +27,12 @@ public class Controller2
   @FXML private ListView<Course> CourseList;
   @FXML private ListView<Room> RoomsList;
   @FXML private TableView table;
-  @FXML private ArrayList<Exam> examList;
+  private ExamList examList;
   @FXML private ObservableList<Exam> data;
-  @FXML private StudentFileAdapter adapterStudents;
-  @FXML private TeachersFileAdapter adapterTeachers;
-  @FXML private CourseFileAdapter adapterCourse;
-  @FXML private RoomFileAdapter adapterRooms;
+  private StudentFileAdapter adapterStudents;
+  private TeachersFileAdapter adapterTeachers;
+  private CourseFileAdapter adapterCourse;
+  private RoomFileAdapter adapterRooms;
   @FXML private TextField studentNumberField;
   @FXML private TextField classNumberField;
   @FXML private TextField teacherName;
@@ -58,17 +60,23 @@ public class Controller2
 
 
 
+
  public Controller2(){
-   examList = new ArrayList<>();
-   RoomsList = new ListView<>();
-   adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
+   examList = new ExamList();
+
  }
   public void initialize()
   {
     setTableColumns();
+
     courseBox.getItems().removeAll();
     courseBox.getItems().addAll("SDJ1", "SSE", "RWD1", "MSE", "SEP1", "SDJ2", "DBS1", "SWE1", "SEP2");
     courseBox.setPromptText("Choose course");
+
+
+
+
+
 
     studentsBox.getItems().removeAll();
     studentsBox.getItems().addAll("1X", "1Y", "1Z", "1D", "2X", "2Y", "2Z", "2D", "3X", "3Y", "3Z", "3D");
@@ -83,7 +91,6 @@ public class Controller2
     classroomBox.setPromptText("Choose classroom");
 
     submit.setOnAction(e -> scheduleAlert());
-    export.setOnAction(e -> exportAlert());
     updateStudents.setOnAction(e -> updateInfo());
     updateTeachers.setOnAction(e -> updateInfoTeachers());
     updateCourses.setOnAction(e -> updateInfoCourses());
@@ -96,9 +103,12 @@ public class Controller2
     removeRoom.setOnAction(e -> removeRoom());
     removeCourse.setOnAction(e -> removeCourse());
     removeTeachers.setOnAction(e -> removeTeacher());
+    export.setOnAction(e -> exportXML());
 
+
+
+    adapterStudents= new StudentFileAdapter("Client/StudentsList.bin");
     ManageStudentsList list = adapterStudents.getAllStudents();
-
     for (int i = 0; i < list.getNumberOfStudents(); i++)
     {
       StudentList.getItems().add(list.getAllStudents(i));
@@ -129,7 +139,6 @@ public class Controller2
     {
       RoomsList.getItems().add(list4.getAllRooms(i));
     }
-
 
   }
 
@@ -167,11 +176,13 @@ private void setTableColumns() {
     SimpleStringProperty var3 = new SimpleStringProperty((String) teacher);
     SimpleStringProperty var4 = new SimpleStringProperty((String) student);
     Exam exam = new Exam(var0, var1, var2, var3, var4);
-    examList.add(exam);
-    data = FXCollections.observableArrayList(examList);
-    table.setItems(data);
+    examList.addExam(exam);
+    //data = FXCollections.observableArrayList(examList);
 
-    //table.getItems().add(data);
+    for (int i = 0; i < examList.getNumberOfExams(); i++)
+    {
+      table.getItems().add(examList.getAllExams(i));
+    }
 
 
 
@@ -181,15 +192,24 @@ private void setTableColumns() {
     alert.setHeaderText("Results:");
     alert.setContentText("Course: "+courseBox.getValue()+"\nStudents: "+studentsBox.getValue()+"\nExaminer: "+examinerBox.getValue()+"\nClassroom: "+classroomBox.getValue()+"\nDate: "+datePicker.getValue());
     alert.showAndWait();
+    System.out.println(examList);
 
   }
 
-  private void exportAlert() {
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("Warning");
-    alert.setHeaderText("Are you sure you want to export the schedule?");
 
-    alert.showAndWait();
+  private void exportXML()
+  {
+    MyXmlConverter xml = new MyXmlConverter();
+
+    try
+    {
+      xml.toXml(examList, "schedule.xml");
+    }
+    catch (XmlConverterException e)
+    {
+      e.printStackTrace();
+    }
+
   }
 
   private void updateInfo() {
@@ -197,7 +217,6 @@ private void setTableColumns() {
     String classNumber = classNumberField.getText();
 
     adapterStudents.changeStudent(StudentList.getSelectionModel().getSelectedIndex(), studentNumber, classNumber);
-    //adapterStudents.changeStudent(studentNumber, classNumber);
     studentListMethod();
     studentNumberField.setText("");
     classNumberField.setText("");

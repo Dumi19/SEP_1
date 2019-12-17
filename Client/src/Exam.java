@@ -5,14 +5,7 @@ import java.time.LocalDate;
 
 public class Exam
 {
-  //Date
-  //Course
-  //Examiner
-  //Class
-  //Room
-//set get
-  //Create ListView<Exam>()
-  //After setting in Schedule method display them
+
   private SimpleStringProperty date;
   private SimpleStringProperty course;
   private SimpleStringProperty room;
@@ -101,5 +94,11 @@ public class Exam
   public void setStudents(String students)
   {
     this.students.set(students);
+  }
+
+  public String toString()
+  {
+    return "Exam{" + "date=" + date + ", course=" + course + ", room=" + room
+        + ", teacher=" + teacher + ", students=" + students + '}';
   }
 }

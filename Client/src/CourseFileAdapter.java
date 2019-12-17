@@ -108,6 +108,7 @@ public class CourseFileAdapter
 
 
 
+
   // Add more methods to the adapter depending on what you wish to do
   }
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<examlist>
+  <exams>
+    <date>
+      <valid>true</valid>
+      <helper>
+        <observable/>
+      </helper>
+      <name/>
+      <value>05 December 2019</value>
+    </date>
+    <teacher>
+      <valid>true</valid>
+      <helper>
+        <observable/>
+      </helper>
+      <name/>
+      <value>Examiner3</value>
+    </teacher>
+    <course>
+      <valid>true</valid>
+      <helper>
+        <observable/>
+      </helper>
+      <name/>
+      <value>RWD1</value>
+    </course>
+    <students>
+      <valid>true</valid>
+      <helper>
+        <observable/>
+      </helper>
+      <name/>
+      <value>1X</value>
+    </students>
+    <room>
+      <valid>true</valid>
+      <helper>
+        <observable/>
+      </helper>
+      <name/>
+      <value>3</value>
+    </room>
+  </exams>
+</examlist>
