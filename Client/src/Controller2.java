@@ -20,7 +20,6 @@ public class Controller2
   @FXML private Button updateStudents;
   @FXML private Button export;
   @FXML private DatePicker datePicker;
-  @FXML private Alert alert;
   @FXML private ListView<Student> StudentList;
   @FXML private ListView<Teacher> TeachersList;
   @FXML private ListView<Course> CourseList;
@@ -32,7 +31,6 @@ public class Controller2
   @FXML private TeachersFileAdapter adapterTeachers;
   @FXML private CourseFileAdapter adapterCourse;
   @FXML private RoomFileAdapter adapterRooms;
-  @FXML private ExamFileAdapter adapterExam;
   @FXML private TextField studentNumberField;
   @FXML private TextField classNumberField;
   @FXML private TextField teacherName;
@@ -54,6 +52,9 @@ public class Controller2
   @FXML private Button addTeacher;
   @FXML private Button addRoom;
   @FXML private Button removeStudents;
+  @FXML private Button removeRoom;
+  @FXML private Button removeCourse;
+  @FXML private Button removeTeachers;
 
 
 
@@ -92,6 +93,9 @@ public class Controller2
     addRoom.setOnAction(e -> roomAdd());
     addTeacher.setOnAction(e -> teacherAdd());
     removeStudents.setOnAction(e -> removeStudent());
+    removeRoom.setOnAction(e -> removeRoom());
+    removeCourse.setOnAction(e -> removeCourse());
+    removeTeachers.setOnAction(e -> removeTeacher());
 
     ManageStudentsList list = adapterStudents.getAllStudents();
 
@@ -150,15 +154,14 @@ private void setTableColumns() {
 
   private void scheduleAlert() {
 
-    //Call the exam constructor with all the parameters in the alert window
     LocalDate date = datePicker.getValue();
     String course = courseBox.getValue();
     String room = classroomBox.getValue();
     String teacher = examinerBox.getValue();
     String student = studentsBox.getValue();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
-    String forrmatedDate = date.format(formatter);
-    SimpleStringProperty var0 = new SimpleStringProperty((String) forrmatedDate);
+    String formattedDate = date.format(formatter);
+    SimpleStringProperty var0 = new SimpleStringProperty((String) formattedDate);
     SimpleStringProperty var1 = new SimpleStringProperty((String) course);
     SimpleStringProperty var2 = new SimpleStringProperty((String) room);
     SimpleStringProperty var3 = new SimpleStringProperty((String) teacher);
@@ -224,6 +227,7 @@ private void setTableColumns() {
 
   }
 
+
   private void courseAdd()
   {
     String courseName = courseNameField.getText();
@@ -232,10 +236,21 @@ private void setTableColumns() {
 
     adapterCourse.addCourseToArray(courseName, numberOfStudents, typeOfExam);
 
-
+    courseListMethod();
     courseNumberField.setText("");
     courseNameField.setText("");
     courseTypeField.setText("");
+
+  }
+  private void removeCourse() {
+
+    String courseName = CourseList.getSelectionModel().getSelectedItem().getCourseName();
+    String numberOfStudents = CourseList.getSelectionModel().getSelectedItem().getNumberOfStudents();
+    String typeOfExam = CourseList.getSelectionModel().getSelectedItem().getTypeOfExam();
+
+    adapterCourse.removeCourseFromArray(courseName, numberOfStudents, typeOfExam);
+
+    courseListMethod();
 
   }
 
@@ -255,11 +270,25 @@ private void setTableColumns() {
 
     adapterTeachers.addTeacherToArray(name, lastName, teacherCourse, availability);
 
-
+    teachersListMethod();
     teacherLastName.setText("");
     teacherName.setText("");
     subject.setText("");
     availabilityYes.setText("");
+
+  }
+
+  private void removeTeacher() {
+
+    String name = TeachersList.getSelectionModel().getSelectedItem().getFirstName();
+    String lastName = TeachersList.getSelectionModel().getSelectedItem().getLastName();
+    String course = TeachersList.getSelectionModel().getSelectedItem().getTeacherCourse();
+    boolean isAvailable = TeachersList.getSelectionModel().getSelectedItem().isAvaliable();
+
+
+    adapterTeachers.removeTeacherFromArray(name, lastName, course, isAvailable);
+
+    teachersListMethod();
 
   }
 
@@ -275,15 +304,28 @@ private void setTableColumns() {
       free = true;
     }
 
-    adapterRooms.addTeacherToArray(number, seats, equipped, free);
+    adapterRooms.addRoomToArray(number, seats, equipped, free);
 
-
+    roomsListMethod();
     roomNumberField.setText("");
     seatsNumberField.setText("");
     isItEquipedField.setText("");
     isItFreeYes.setText("");
 
   }
+  private void removeRoom() {
+
+    int roomNumber = RoomsList.getSelectionModel().getSelectedItem().getRoomNumber();
+    int numberOfSeats = RoomsList.getSelectionModel().getSelectedItem().getSeatsNumber();
+    boolean equipped = RoomsList.getSelectionModel().getSelectedItem().isItEquiped();
+    boolean free = RoomsList.getSelectionModel().getSelectedItem().isItFree();
+
+    adapterRooms.removeRoomFromArray(roomNumber, numberOfSeats, equipped, free);
+
+    roomsListMethod();
+
+  }
+
 
   private void updateInfoTeachers() {
     String firstName = teacherName.getText();

@@ -96,7 +96,7 @@ public class RoomFileAdapter
     }
 
 
-  public void addTeacherToArray(int roomNumber, int seatsNumber, boolean isItEquiped, boolean isItFree)
+  public void addRoomToArray(int roomNumber, int seatsNumber, boolean isItEquiped, boolean isItFree)
   {
     ManageRooms rooms = getAllRooms();
 
@@ -104,6 +104,22 @@ public class RoomFileAdapter
     rooms.addRoom(new Room(roomNumber, seatsNumber, isItEquiped, isItFree));
     saveRoom(rooms);
   }
+
+  public void removeRoomFromArray(int roomNumber, int seatsNumber, boolean isItEquiped, boolean isItFree)
+  {
+    ManageRooms rooms = getAllRooms();
+
+    for (int i = 0; i < rooms.getNumberOfRooms(); i++)
+    {
+      if (rooms.getAllRooms(i).getRoomNumber()==roomNumber)
+      {
+        rooms.removeRoom(i);
+      }
+    }
+
+    saveRoom(rooms);
+  }
+
 
 
     // Add more methods to the adapter depending on what you wish to do

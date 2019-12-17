@@ -27,8 +27,8 @@ public class ManageRooms implements Serializable
         rooms.add(room);
     }
 
-    public void removeRoom(Room room) {
-        rooms.remove(room);
+    public void removeRoom(int index) {
+        rooms.remove(index);
     }
 
     public Room getRoom(int index) {

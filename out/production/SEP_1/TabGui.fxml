@@ -60,6 +60,7 @@
                   <TextField fx:id="courseTypeField" layoutX="140.0" layoutY="160.0" />
                   <Button fx:id="updateCourses" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                   <Button fx:id="addCourse" layoutX="33.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="removeCourse" layoutX="113.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
                </children></AnchorPane>
          </content>
       </Tab>
@@ -78,6 +79,7 @@
                   <Button fx:id="updateTeachers" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                   <CheckBox fx:id="availabilityYes" layoutX="180.0" layoutY="220.0" mnemonicParsing="false" text="Yes" />
                   <Button fx:id="addTeacher" layoutX="33.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="removeTeachers" layoutX="97.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
                </children></AnchorPane>
          </content>
       </Tab>
@@ -96,6 +98,7 @@
                   <Button fx:id="updateRooms" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                   <CheckBox fx:id="isItFreeYes" layoutX="150.0" layoutY="246.0" mnemonicParsing="false" text="Yes" />
                   <Button fx:id="addRoom" layoutX="42.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="removeRoom" layoutX="112.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
                </children></AnchorPane>
          </content>
       </Tab>

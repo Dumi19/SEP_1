@@ -102,6 +102,21 @@ public class CourseFileAdapter
     saveCourses(courses);
   }
 
+  public void removeCourseFromArray(String courseName, String numberOfStudents, String typeOfExam)
+  {
+    manageCourse_list courses = getAllCourses();
+
+    for (int i = 0; i < courses.getNumberOfCourses(); i++)
+    {
+      if (courses.getAllCourses(i).getCourseName().equals(courseName))
+      {
+        courses.removeCourses(i);
+      }
+    }
+
+    saveCourses(courses);
+  }
+
 
 
 

@@ -58,4 +58,9 @@ public class manageCourse_list implements Serializable
     return courses.size();
   }
 
+  public void removeCourses(int index)
+  {
+    courses.remove(index);
+  }
+
 }
