@@ -433,13 +433,4 @@ private void setTableColumns() {
       RoomsList.getSelectionModel().select(currentIndex);
     }
   }
-
-
-
-
-
-
-
-
-
 }

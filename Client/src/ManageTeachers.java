@@ -14,6 +14,9 @@ public class ManageTeachers  implements Serializable
   }
 
 
+  /**
+   * Returns number of teachers in the ArrayList.
+   */
   public int getNumberOfTeachers()
   {
     return teachers.size();
@@ -24,11 +27,18 @@ public class ManageTeachers  implements Serializable
     return teachers;
   }
 
+  /**
+   * Adds a Teacher to the list.
+   * @param teacher the teacher to add to the list
+   */
   public void addTeachers(Teacher teacher)
   {
     teachers.add(teacher);
   }
 
+  /**
+   * Removes a Teacher from the list.
+   */
   public void removeTeacher(Teacher teacher)
   {
     teachers.remove(teacher);

@@ -12,10 +12,17 @@ public class ManageRooms implements Serializable
         rooms = new ArrayList<Room>();
     }
 
+    /**
+     * Returns number of rooms in the ArrayList.
+     */
     public int getNumberOfRooms() {
         return rooms.size();
     }
 
+    /**
+     * Adds a Room to the list.
+     * @param room the student to add to the list
+     */
     public void addRoom(Room room) {
         rooms.add(room);
     }

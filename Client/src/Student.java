@@ -40,6 +40,10 @@ public class Student implements Serializable
     this.studentsClass = studentsClass;
   }
 
+  /**
+   * Gets the student's programme/course.
+   * @return the student's programme/course
+   */
   public String getStudentsClass()
   {
     return studentsClass;

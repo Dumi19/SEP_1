@@ -24,6 +24,10 @@ public class manageCourse_list implements Serializable
     return courses;
   }
 
+  /**
+   * Adds a Course to the list.
+   * @param course the student to add to the list
+   */
   public void addCourse(Course course)
   {
     courses.add(course);
@@ -46,6 +50,9 @@ public class manageCourse_list implements Serializable
     }
   }
 
+  /**
+   * Returns number of courses in the ArrayList.
+   */
   public int getNumberOfCourses()
   {
     return courses.size();
