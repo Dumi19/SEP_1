@@ -82,6 +82,19 @@ public class ManageTeachers  implements Serializable
   }
 
 
+  public Teacher get(int index)
+  {
+    if (index < teachers.size())
+    {
+      return teachers.get(index);
+    }
+    else
+    {
+      return null;
+    }
+  }
+
+
 
 
 

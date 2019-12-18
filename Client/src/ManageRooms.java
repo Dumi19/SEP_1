@@ -97,5 +97,17 @@ public class ManageRooms implements Serializable
         }
     }
 
+    public Room get(int index)
+    {
+        if(index<rooms.size())
+        {
+            return rooms.get(index);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 
 }

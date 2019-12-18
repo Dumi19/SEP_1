@@ -96,7 +96,9 @@ public class CourseFileAdapter
 
     for (int i = 0; i < courses.getNumberOfCourses(); i++)
     {
-      if (courses.getAllCourses(i).getCourseName().equals(courseName))
+      if (courses.getAllCourses(i).getCourseName().equals(courseName) && courses
+          .getAllCourses(i).getNumberOfStudents().equals(numberOfStudents)
+          && courses.getAllCourses(i).getTypeOfExam().equals(typeOfExam))
       {
         courses.removeCourses(i);
       }

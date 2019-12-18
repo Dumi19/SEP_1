@@ -28,7 +28,7 @@
                   <ComboBox fx:id="examinerBox" layoutX="398.0" layoutY="143.0" prefWidth="150.0" />
                   <ComboBox fx:id="classroomBox" layoutX="398.0" layoutY="261.0" prefWidth="150.0" />
                   <DatePicker fx:id="datePicker" layoutX="206.0" layoutY="50.0" />
-                  <Button fx:id="submit" layoutX="264.0" layoutY="317.0" mnemonicParsing="false" text="Schedule!" />
+                  <Button fx:id="submit" layoutX="264.0" layoutY="320.0" mnemonicParsing="false" text="Schedule!" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -42,8 +42,8 @@
                   <TextField fx:id="studentNumberField" layoutX="140.0" layoutY="50.0" />
                   <TextField fx:id="classNumberField" layoutX="140.0" layoutY="105.0" />
                   <Button fx:id="updateStudents" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
-                  <Button fx:id="addStudent" layoutX="58.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
-                  <Button fx:id="removeStudents" layoutX="113.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="addStudent" layoutX="30.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="removeStudents" layoutX="100.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -59,8 +59,8 @@
                   <TextField fx:id="courseNumberField" layoutX="140.0" layoutY="105.0" />
                   <TextField fx:id="courseTypeField" layoutX="140.0" layoutY="160.0" />
                   <Button fx:id="updateCourses" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
-                  <Button fx:id="addCourse" layoutX="33.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
-                  <Button fx:id="removeCourse" layoutX="113.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="addCourse" layoutX="30.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="removeCourse" layoutX="100.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
                </children></AnchorPane>
          </content>
       </Tab>
@@ -78,8 +78,8 @@
                   <TextField fx:id="teacherLastName" layoutX="140.0" layoutY="160.0" />
                   <Button fx:id="updateTeachers" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                   <CheckBox fx:id="availabilityYes" layoutX="180.0" layoutY="220.0" mnemonicParsing="false" text="Yes" />
-                  <Button fx:id="addTeacher" layoutX="33.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
-                  <Button fx:id="removeTeachers" layoutX="97.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="addTeacher" layoutX="30.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="removeTeachers" layoutX="100.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
                </children></AnchorPane>
          </content>
       </Tab>
@@ -94,11 +94,11 @@
                   <Label layoutX="24.0" layoutY="246.0" text="Is it free:" />
                   <TextField fx:id="roomNumberField" layoutX="139.0" layoutY="50.0" />
                   <TextField fx:id="seatsNumberField" layoutX="140.0" layoutY="105.0" />
-                  <TextField fx:id="isItEquipedField" layoutX="140.0" layoutY="160.0" />
                   <Button fx:id="updateRooms" layoutX="190.0" layoutY="314.0" mnemonicParsing="false" text="Update" />
                   <CheckBox fx:id="isItFreeYes" layoutX="150.0" layoutY="246.0" mnemonicParsing="false" text="Yes" />
-                  <Button fx:id="addRoom" layoutX="42.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
-                  <Button fx:id="removeRoom" layoutX="112.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
+                  <Button fx:id="addRoom" layoutX="30.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="removeRoom" layoutX="100.0" layoutY="314.0" mnemonicParsing="false" text="Remove" />
+                  <CheckBox fx:id="isItEquipedCheckBox" layoutX="150.0" layoutY="165.0" mnemonicParsing="false" text="Yes" />
                </children></AnchorPane>
          </content>
       </Tab>
@@ -107,7 +107,7 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <TableView fx:id="table" layoutX="26.0" layoutY="16.0" prefHeight="296.0" prefWidth="552.0" />
-                  <Button fx:id="export" layoutX="273.0" layoutY="320.0" mnemonicParsing="false" text="Export" />
+                  <Button fx:id="export" layoutX="264.0" layoutY="320.0" mnemonicParsing="false" text="Export" />
                </children>
             </AnchorPane>
          </content>

@@ -6,6 +6,7 @@ import java.io.IOException;
  * information, creates a StudentList object with all students read from the file,
  * and saves it as a binary file. The text file must have information of one student
  * on each line, and each line should be in the format: firstName,lastName,country
+ *
  * @author Allan Henriksen
  * @version 1.0
  */
@@ -21,13 +22,12 @@ public class LoadInitialData
     {
       studentArray = mtfio.readArrayFromFile("Client/studentsList.txt");
 
-      for(int i = 0; i<studentArray.length; i++)
+      for (int i = 0; i < studentArray.length; i++)
       {
         String temp = studentArray[i];
         String[] tempArr = temp.split(",");
         String studentID = tempArr[0];
         String studentsClass = tempArr[1];
-
 
         students.addStudent(new Student(studentID, studentsClass));
       }

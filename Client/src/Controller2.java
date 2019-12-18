@@ -15,10 +15,10 @@ import java.util.ArrayList;
 
 public class Controller2
 {
-  @FXML private ComboBox<String> courseBox;
-  @FXML private ComboBox<String> studentsBox;
-  @FXML private ComboBox<String> examinerBox;
-  @FXML private ComboBox<String> classroomBox;
+  @FXML private ComboBox<Course> courseBox;
+  @FXML private ComboBox<Student> studentsBox;
+  @FXML private ComboBox<Teacher> examinerBox;
+  @FXML private ComboBox<Room> classroomBox;
   @FXML private Button submit;
   @FXML private Button updateStudents;
   @FXML private Button export;
@@ -47,7 +47,7 @@ public class Controller2
   @FXML private Button updateCourses;
   @FXML private TextField roomNumberField;
   @FXML private TextField seatsNumberField;
-  @FXML private TextField isItEquipedField;
+  @FXML private CheckBox isItEquipedCheckBox;
   @FXML private CheckBox isItFreeYes;
   @FXML private Button updateRooms;
   @FXML private Button addStudent;
@@ -58,7 +58,6 @@ public class Controller2
   @FXML private Button removeRoom;
   @FXML private Button removeCourse;
   @FXML private Button removeTeachers;
-  private ArrayList<Course> courseArrayList = new ArrayList<Course>();
 
   public Controller2()
   {
@@ -70,34 +69,7 @@ public class Controller2
   {
     setTableColumns();
 
-    courseBox.getItems().removeAll();
-    courseBox.getItems()
-        .addAll("SDJ1", "SSE", "RWD1", "MSE", "SEP1", "SDJ2", "DBS1", "SWE1",
-            "SEP2");
 
-
-    courseBox.setPromptText("Choose course");
-
-
-
-
-
-
-    studentsBox.getItems().removeAll();
-    studentsBox.getItems()
-        .addAll("1X", "1Y", "1Z", "1D", "2X", "2Y", "2Z", "2D", "3X", "3Y",
-            "3Z", "3D");
-    studentsBox.setPromptText("Choose students list");
-
-    examinerBox.getItems().removeAll();
-    examinerBox.getItems()
-        .addAll("Examiner1", "Examiner2", "Examiner3", "Examiner4", "Examiner5",
-            "Examiner6", "Examiner7", "Examiner8", "Examiner9");
-    examinerBox.setPromptText("Choose examiner");
-
-    classroomBox.getItems().removeAll();
-    classroomBox.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9");
-    classroomBox.setPromptText("Choose classroom");
 
     submit.setOnAction(e -> scheduleAlert());
     updateStudents.setOnAction(e -> updateInfo());
@@ -141,7 +113,98 @@ public class Controller2
     {
       RoomsList.getItems().add(list4.getAllRooms(i));
     }
+    updateCourseBox();
+    updateRoomsBox();
+    updateStudentsBox();
+    updateTeachersBox();
+  }
 
+  public void updateCourseBox()
+  {
+    int currentIndex = courseBox.getSelectionModel().getSelectedIndex();
+
+    courseBox.getItems().clear();
+
+    manageCourse_list courses = adapterCourse.getAllCourses();
+    for (int i = 0; i < courses.getNumberOfCourses(); i++)
+    {
+      courseBox.getItems().add(courses.get(i));
+    }
+
+    if (currentIndex == -1 && courseBox.getItems().size() > 0)
+    {
+      courseBox.getSelectionModel().select(0);
+    }
+    else
+    {
+      courseBox.getSelectionModel().select(currentIndex);
+    }
+  }
+
+  public void updateStudentsBox()
+  {
+    int currentIndex = studentsBox.getSelectionModel().getSelectedIndex();
+
+    studentsBox.getItems().clear();
+
+    ManageStudentsList students = adapterStudents.getAllStudents();
+    for (int i = 0; i < students.getNumberOfStudents(); i++)
+    {
+      studentsBox.getItems().add(students.get(i));
+    }
+
+    if (currentIndex == -1 && studentsBox.getItems().size() > 0)
+    {
+      studentsBox.getSelectionModel().select(0);
+    }
+    else
+    {
+      studentsBox.getSelectionModel().select(currentIndex);
+    }
+  }
+
+  public void updateTeachersBox()
+  {
+    int currentIndex = examinerBox.getSelectionModel().getSelectedIndex();
+
+    examinerBox.getItems().clear();
+
+    ManageTeachers teachers = adapterTeachers.getAllTeachers();
+    for (int i = 0; i < teachers.getNumberOfTeachers(); i++)
+    {
+      examinerBox.getItems().add(teachers.get(i));
+    }
+
+    if (currentIndex == -1 && examinerBox.getItems().size() > 0)
+    {
+      examinerBox.getSelectionModel().select(0);
+    }
+    else
+    {
+      examinerBox.getSelectionModel().select(currentIndex);
+    }
+  }
+
+  public void updateRoomsBox()
+  {
+    int currentIndex = classroomBox.getSelectionModel().getSelectedIndex();
+
+    classroomBox.getItems().clear();
+
+    ManageRooms rooms = adapterRooms.getAllRooms();
+    for (int i = 0; i < rooms.getNumberOfRooms(); i++)
+    {
+      classroomBox.getItems().add(rooms.get(i));
+    }
+
+    if (currentIndex == -1 && classroomBox.getItems().size() > 0)
+    {
+      classroomBox.getSelectionModel().select(0);
+    }
+    else
+    {
+      classroomBox.getSelectionModel().select(currentIndex);
+    }
   }
 
   private void setTableColumns()
@@ -170,10 +233,10 @@ public class Controller2
   {
 
     LocalDate date = datePicker.getValue();
-    String course = courseBox.getValue();
-    String room = classroomBox.getValue();
-    String teacher = examinerBox.getValue();
-    String student = studentsBox.getValue();
+    String course = courseBox.getValue().toString();
+    String room = classroomBox.getValue().toString();
+    String teacher = examinerBox.getValue().toString();
+    String student = studentsBox.getValue().toString();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
     String formattedDate = date.format(formatter);
     SimpleStringProperty var0 = new SimpleStringProperty(
@@ -184,12 +247,7 @@ public class Controller2
     SimpleStringProperty var4 = new SimpleStringProperty((String) student);
     Exam exam = new Exam(var0, var1, var2, var3, var4);
     examList.addExam(exam);
-    //data = FXCollections.observableArrayList(examList);
-
-    for (int i = 0; i < examList.getNumberOfExams(); i++)
-    {
-      table.getItems().add(examList.getAllExams(i));
-    }
+    table.getItems().add(exam);
 
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Test Connection");
@@ -221,15 +279,14 @@ public class Controller2
 
   private void updateInfo()
   {
-    String studentNumber = studentNumberField.getText();
-    String classNumber = classNumberField.getText();
+    String studentNumber = StudentList.getSelectionModel().getSelectedItem()
+        .getStudentID();
+    String classNumber = StudentList.getSelectionModel().getSelectedItem()
+        .getStudentsClass();
 
-    adapterStudents
-        .changeStudent(StudentList.getSelectionModel().getSelectedIndex(),
-            studentNumber, classNumber);
     studentListMethod();
-    studentNumberField.setText("");
-    classNumberField.setText("");
+    studentNumberField.setText(studentNumber);
+    classNumberField.setText(classNumber);
   }
 
   private void studentAdd()
@@ -336,12 +393,16 @@ public class Controller2
   {
     int number = Integer.parseInt(roomNumberField.getText());
     int seats = Integer.parseInt(seatsNumberField.getText());
-    boolean equipped = Boolean.parseBoolean(isItEquipedField.getText());
+    boolean equipped = false;
     boolean free = false;
 
     if (isItFreeYes.isSelected())
     {
       free = true;
+    }
+    if (isItEquipedCheckBox.isSelected())
+    {
+      equipped = true;
     }
 
     adapterRooms.addRoomToArray(number, seats, equipped, free);
@@ -349,7 +410,7 @@ public class Controller2
     roomsListMethod();
     roomNumberField.setText("");
     seatsNumberField.setText("");
-    isItEquipedField.setText("");
+    isItEquipedCheckBox.setText("");
     isItFreeYes.setText("");
 
   }
@@ -373,56 +434,63 @@ public class Controller2
 
   private void updateInfoTeachers()
   {
-    String firstName = teacherName.getText();
-    String lastName = teacherLastName.getText();
-    String teacherCourse = subject.getText();
+    String name = TeachersList.getSelectionModel().getSelectedItem()
+        .getFirstName();
+    teacherName.setText(name);
 
-    boolean isAvailable = false;
+    String lastName = TeachersList.getSelectionModel().getSelectedItem()
+        .getLastName();
+    teacherLastName.setText(lastName);
 
-    if (availabilityYes.isSelected())
-      isAvailable = true;
-    //isAvailable = availability.getText();
+    String subjectT = TeachersList.getSelectionModel().getSelectedItem()
+        .getTeacherCourse();
+    subject.setText(subjectT);
+    if (TeachersList.getSelectionModel().getSelectedItem().isAvaliable())
+    {
+      availabilityYes.setSelected(true);
+    }
 
-    adapterTeachers
-        .changeTeacher(TeachersList.getSelectionModel().getSelectedIndex(),
-            firstName, lastName, teacherCourse, isAvailable);
     teachersListMethod();
-    teacherName.setText("");
-    teacherLastName.setText("");
-    subject.setText("");
 
   }
 
   private void updateInfoCourses()
   {
-    String courseName = courseNameField.getText();
-    String numberOfStudents = courseNumberField.getText();
-    String typeOfExam = courseTypeField.getText();
+    String courseName = CourseList.getSelectionModel().getSelectedItem()
+        .getCourseName();
+    String numberOfStudents = CourseList.getSelectionModel().getSelectedItem()
+        .getNumberOfStudents();
+    String typeOfExam = CourseList.getSelectionModel().getSelectedItem()
+        .getTypeOfExam();
 
-    adapterCourse
-        .changeCourse(CourseList.getSelectionModel().getSelectedIndex(),
-            courseName, numberOfStudents, typeOfExam);
+    courseNameField.setText(courseName);
+    courseNumberField.setText(numberOfStudents);
+    courseTypeField.setText(typeOfExam);
     courseListMethod();
-    courseNameField.setText("");
-    courseNumberField.setText("");
-    courseTypeField.setText("");
-
   }
 
   private void updateInfoRooms()
   {
-    int roomNumber = Integer.parseInt(roomNumberField.getText());
-    int seatsNumber = Integer.parseInt(seatsNumberField.getText());
-    boolean isItEquiped = Boolean.parseBoolean(isItEquipedField.getText());
-    boolean isItFree = Boolean.parseBoolean(isItFreeYes.getText());
+    int roomNumber = RoomsList.getSelectionModel().getSelectedItem()
+        .getRoomNumber();
+    int seatsNumber = RoomsList.getSelectionModel().getSelectedItem()
+        .getSeatsNumber();
 
-    adapterRooms.changeRoom(RoomsList.getSelectionModel().getSelectedIndex(),
-        roomNumber, seatsNumber, isItEquiped, isItFree);
+    String roomNumber1 = Integer.toString(roomNumber);
+    String seatsNumber1 = Integer.toString(seatsNumber);
+
+    if (RoomsList.getSelectionModel().getSelectedItem().isItEquiped())
+    {
+      isItEquipedCheckBox.setSelected(true);
+    }
+    if (RoomsList.getSelectionModel().getSelectedItem().isItFree())
+    {
+      isItFreeYes.setSelected(true);
+    }
+
     roomsListMethod();
-    roomNumberField.setText("");
-    seatsNumberField.setText("");
-    isItEquipedField.setText("");
-    isItFreeYes.setText("");
+    roomNumberField.setText(roomNumber1);
+    seatsNumberField.setText(seatsNumber1);
 
   }
 

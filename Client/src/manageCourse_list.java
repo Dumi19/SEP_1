@@ -67,4 +67,16 @@ public class manageCourse_list implements Serializable
   {
     return courses.get(index);
   }
+
+  public Course get(int index)
+  {
+    if(index<courses.size())
+    {
+      return courses.get(index);
+    }
+    else
+    {
+      return null;
+    }
+  }
 }

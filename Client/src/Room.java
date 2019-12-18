@@ -105,6 +105,6 @@ public class Room implements Serializable
    */
   public String toString()
   {
-    return roomNumber+" "+seatsNumber+" "+isItEquiped+" "+isItFree;
+    return roomNumber+" /"+" "+seatsNumber+" /"+" "+isItEquiped+" /"+" "+isItFree;
   }
 }

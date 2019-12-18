@@ -76,4 +76,16 @@ public class ManageStudentsList implements Serializable
     return students.size();
   }
 
+  public Student get(int index)
+  {
+    if (index < students.size())
+    {
+      return students.get(index);
+    }
+    else
+    {
+      return null;
+    }
+  }
+
 }
