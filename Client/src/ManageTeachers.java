@@ -1,9 +1,9 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ManageTeachers  implements Serializable
+public class ManageTeachers implements Serializable
 {
-  private ArrayList<Teacher>teachers;
+  private ArrayList<Teacher> teachers;
 
   /**
    * No-argument constructor initializing the StudentList.
@@ -12,7 +12,6 @@ public class ManageTeachers  implements Serializable
   {
     teachers = new ArrayList<Teacher>();
   }
-
 
   /**
    * Returns number of teachers in the ArrayList.
@@ -29,6 +28,7 @@ public class ManageTeachers  implements Serializable
 
   /**
    * Adds a Teacher to the list.
+   *
    * @param teacher the teacher to add to the list
    */
   public void addTeachers(Teacher teacher)
@@ -48,9 +48,9 @@ public class ManageTeachers  implements Serializable
   {
     int amount = 0;
 
-    for (int i = 0; i <teachers.size() ; i++)
+    for (int i = 0; i < teachers.size(); i++)
     {
-      if (teachers.get(i).isAvaliable()==true)
+      if (teachers.get(i).isAvaliable() == true)
       {
         amount++;
       }
@@ -61,7 +61,7 @@ public class ManageTeachers  implements Serializable
   public ArrayList<Teacher> getAvaliableTeachers()               //check
   {
     ArrayList<Teacher> tempList = new ArrayList<Teacher>();
-    for (int i = 0; i <teachers.size() ; i++)
+    for (int i = 0; i < teachers.size(); i++)
     {
       if (teachers.get(i).isAvaliable())
         tempList.add(teachers.get(i));
@@ -71,7 +71,7 @@ public class ManageTeachers  implements Serializable
 
   public Teacher getAllTeachers(int index)
   {
-    if(index<teachers.size())
+    if (index < teachers.size())
     {
       return teachers.get(index);
     }
@@ -80,7 +80,6 @@ public class ManageTeachers  implements Serializable
       return null;
     }
   }
-
 
   public Teacher get(int index)
   {
@@ -93,11 +92,5 @@ public class ManageTeachers  implements Serializable
       return null;
     }
   }
-
-
-
-
-
-
 
 }

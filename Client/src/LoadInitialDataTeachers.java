@@ -6,55 +6,56 @@ import java.io.IOException;
  * information, creates a TeachersList object with all teachers read from the file,
  * and saves it as a binary file. The text file must have information of one teacher
  * on each line, and each line should be in the format: firstName,lastName,teacherCourse, isAvaliable
+ *
  * @author SEP Killers
  * @version 1.0
  */
 public class LoadInitialDataTeachers
 {
 
-    public static void main(String[] args)
+  public static void main(String[] args)
+  {
+    ManageTeachers teachers = new ManageTeachers();
+
+    MyTextFileIO mtfio = new MyTextFileIO();
+    String[] teacherArray = null;
+    try
     {
-      ManageTeachers teachers = new ManageTeachers();
+      teacherArray = mtfio.readArrayFromFile("Client/TeachersList.txt");
 
-      MyTextFileIO mtfio = new MyTextFileIO();
-      String[] teacherArray = null;
-      try
+      for (int i = 0; i < teacherArray.length; i++)
       {
-        teacherArray = mtfio.readArrayFromFile("Client/TeachersList.txt");
+        String temp = teacherArray[i];
+        String[] tempArr = temp.split(",");
+        String firstName = tempArr[0];
+        String lastName = tempArr[1];
+        String teacherCourse = tempArr[2];
+        boolean isAvaliable = Boolean.parseBoolean(tempArr[3]);
 
-        for(int i = 0; i<teacherArray.length; i++)
-        {
-          String temp = teacherArray[i];
-          String[] tempArr = temp.split(",");
-          String firstName = tempArr[0];
-          String lastName = tempArr[1];
-          String teacherCourse = tempArr[2];
-          boolean isAvaliable = Boolean.parseBoolean(tempArr[3]);
-
-
-          teachers.addTeachers(new Teacher(firstName, lastName, teacherCourse, isAvaliable));
-        }
+        teachers.addTeachers(
+            new Teacher(firstName, lastName, teacherCourse, isAvaliable));
       }
-      catch (FileNotFoundException e)
-      {
-        System.out.println("File was not found, or could not be opened");
-      }
-
-      MyFileIO mfio = new MyFileIO();
-
-      try
-      {
-        mfio.writeToFile("Client/TeachersList.bin", teachers);
-      }
-      catch (FileNotFoundException e)
-      {
-        System.out.println("Error opening file ");
-      }
-      catch (IOException e)
-      {
-        System.out.println("IO Error writing to file ");
-      }
-
-      System.out.println("Done");
     }
+    catch (FileNotFoundException e)
+    {
+      System.out.println("File was not found, or could not be opened");
+    }
+
+    MyFileIO mfio = new MyFileIO();
+
+    try
+    {
+      mfio.writeToFile("Client/TeachersList.bin", teachers);
+    }
+    catch (FileNotFoundException e)
+    {
+      System.out.println("Error opening file ");
+    }
+    catch (IOException e)
+    {
+      System.out.println("IO Error writing to file ");
+    }
+
+    System.out.println("Done");
   }
+}

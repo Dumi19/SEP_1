@@ -2,6 +2,7 @@ import java.io.Serializable;
 
 /**
  * A class representing a room with a room number, number of seats, equipment and availability.
+ *
  * @author SEP Killers
  * @version 1.0
  */
@@ -14,12 +15,14 @@ public class Room implements Serializable
 
   /**
    * Four-argument constructor.
-   * @param roomNumber the room's number
+   *
+   * @param roomNumber  the room's number
    * @param seatsNumber the number of seats in room
    * @param isItEquiped the room's equipment
-   * @param isItFree the room's availability
+   * @param isItFree    the room's availability
    */
-  public Room(int roomNumber, int seatsNumber, boolean isItEquiped, boolean isItFree)
+  public Room(int roomNumber, int seatsNumber, boolean isItEquiped,
+      boolean isItFree)
   {
     this.roomNumber = roomNumber;
     this.seatsNumber = seatsNumber;
@@ -29,6 +32,7 @@ public class Room implements Serializable
 
   /**
    * Sets the room's equipment.
+   *
    * @param isItEquiped what the rooms's equipment will be set to
    */
   public void setItEquiped(boolean isItEquiped)
@@ -38,6 +42,7 @@ public class Room implements Serializable
 
   /**
    * Gets the room's number.
+   *
    * @return the room's number
    */
   public int getRoomNumber()
@@ -47,6 +52,7 @@ public class Room implements Serializable
 
   /**
    * Gets the room's number of seats.
+   *
    * @return the room's number of seats
    */
   public int getSeatsNumber()
@@ -56,6 +62,7 @@ public class Room implements Serializable
 
   /**
    * Sets the room's availability.
+   *
    * @param isItFree what the room's availability
    */
   public void setItFree(boolean isItFree)
@@ -65,6 +72,7 @@ public class Room implements Serializable
 
   /**
    * Gets the room's equipment.
+   *
    * @return the room's equipment
    */
   public boolean isItEquiped()
@@ -74,6 +82,7 @@ public class Room implements Serializable
 
   /**
    * Sets the room's number.
+   *
    * @param roomNumber what the room's number will be set to
    */
   public void setRoomNumber(int roomNumber)
@@ -83,6 +92,7 @@ public class Room implements Serializable
 
   /**
    * Sets the room's seats number.
+   *
    * @param seatsNumber what the room's number of seats will be set to
    */
   public void setSeatsNumber(int seatsNumber)
@@ -92,6 +102,7 @@ public class Room implements Serializable
 
   /**
    * Gets the room's availability.
+   *
    * @return the room availability
    */
   public boolean isItFree()
@@ -101,10 +112,12 @@ public class Room implements Serializable
 
   /**
    * Returns a string representation of the room.
+   *
    * @return a string representation of the room in the format: "roomNumber seatsNumber isItEquiped isItFree"
    */
   public String toString()
   {
-    return roomNumber+" /"+" "+seatsNumber+" /"+" "+isItEquiped+" /"+" "+isItFree;
+    return roomNumber + " /" + " " + seatsNumber + " /" + " " + isItEquiped
+        + " /" + " " + isItFree;
   }
 }

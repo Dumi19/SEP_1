@@ -26,6 +26,7 @@ public class manageCourse_list implements Serializable
 
   /**
    * Adds a Course to the list.
+   *
    * @param course the student to add to the list
    */
   public void addCourse(Course course)
@@ -35,6 +36,7 @@ public class manageCourse_list implements Serializable
 
   /**
    * Gets a Course object from position index from the list.
+   *
    * @param index the position in the list of the Course object
    * @return the Course object at position index if one exists, else null
    */
@@ -70,7 +72,7 @@ public class manageCourse_list implements Serializable
 
   public Course get(int index)
   {
-    if(index<courses.size())
+    if (index < courses.size())
     {
       return courses.get(index);
     }

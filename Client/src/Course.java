@@ -2,6 +2,7 @@ import java.io.Serializable;
 
 /**
  * A class representing a course with a name of course, number of students belong to the course and type of exam.
+ *
  * @author SEP Killers
  * @version 1.0
  */
@@ -13,9 +14,10 @@ public class Course implements Serializable
 
   /**
    * Three-argument constructor.
-   * @param courseName the course's name
+   *
+   * @param courseName       the course's name
    * @param numberOfStudents the number of students which belong to course
-   * @param typeOfExam the course's type of exam
+   * @param typeOfExam       the course's type of exam
    */
   public Course(String courseName, String numberOfStudents, String typeOfExam)
   {
@@ -26,6 +28,7 @@ public class Course implements Serializable
 
   /**
    * Sets the course's name.
+   *
    * @param courseName what the course's name will be set to
    */
   public void setCourseName(String courseName)
@@ -35,6 +38,7 @@ public class Course implements Serializable
 
   /**
    * Gets the course's name.
+   *
    * @return the room's name
    */
   public String getCourseName()
@@ -44,6 +48,7 @@ public class Course implements Serializable
 
   /**
    * Sets the course's number of students.
+   *
    * @param numberOfStudents what the course's number of students which belong to course will be set to
    */
   public void setNumberOfStudents(String numberOfStudents)
@@ -53,6 +58,7 @@ public class Course implements Serializable
 
   /**
    * Gets the course's number of students.
+   *
    * @return the course's number of students
    */
   public String getNumberOfStudents()
@@ -62,6 +68,7 @@ public class Course implements Serializable
 
   /**
    * Sets the course's type of exam.
+   *
    * @param typeOfExam what the course's type of exam will be set to
    */
   public void setTypeOfExam(String typeOfExam)
@@ -71,6 +78,7 @@ public class Course implements Serializable
 
   /**
    * Gets the course's type of exam.
+   *
    * @return the course's type of exam
    */
   public String getTypeOfExam()
@@ -80,10 +88,11 @@ public class Course implements Serializable
 
   /**
    * Returns a string representation of the course.
+   *
    * @return a string representation of the course in the format: "courseName numberOfStudents typeOfExam"
    */
   public String toString()
   {
-    return courseName+" "+numberOfStudents+" "+typeOfExam;
+    return courseName + " " + numberOfStudents + " " + typeOfExam;
   }
 }

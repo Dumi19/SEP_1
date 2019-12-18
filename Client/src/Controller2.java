@@ -69,8 +69,6 @@ public class Controller2
   {
     setTableColumns();
 
-
-
     submit.setOnAction(e -> scheduleAlert());
     updateStudents.setOnAction(e -> updateInfo());
     updateTeachers.setOnAction(e -> updateInfoTeachers());

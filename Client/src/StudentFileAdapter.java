@@ -102,7 +102,8 @@ public class StudentFileAdapter
 
     for (int i = 0; i < students.getNumberOfStudents(); i++)
     {
-      if (students.getAllStudents(i).getStudentID().equals(studentNumber) && students.getAllStudents(i).getStudentsClass().equals(classNumber))
+      if (students.getAllStudents(i).getStudentID().equals(studentNumber)
+          && students.getAllStudents(i).getStudentsClass().equals(classNumber))
       {
         students.removeStudents(i);
       }
