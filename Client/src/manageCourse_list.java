@@ -23,6 +23,7 @@ public class manageCourse_list implements Serializable
     return courses;
   }
 
+
   /**
    * Adds a Course to the list.
    *
