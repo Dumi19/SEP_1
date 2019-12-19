@@ -2,128 +2,170 @@
 <examlist>
   <exams>
     <date>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>04 December 2019</value>
+      <month>12</month>
+      <year>2019</year>
+      <day>10</day>
     </date>
     <teacher>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>Examiner4</value>
+      <firstName>Paweł</firstName>
+      <lastName> Skrzypkowski</lastName>
+      <teacherCourse> SDJ1</teacherCourse>
+      <isAvaliable>false</isAvaliable>
     </teacher>
     <course>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>RWD1</value>
+      <courseName>SDJ1</courseName>
+      <typeOfExam> oral</typeOfExam>
+      <numberOfStudents> 27</numberOfStudents>
     </course>
     <students>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>1Z</value>
+      <studentID>﻿292148</studentID>
+      <studentsClass> 1Z</studentsClass>
     </students>
     <room>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>6</value>
+      <isItEquiped>false</isItEquiped>
+      <seatsNumber>23</seatsNumber>
+      <roomNumber>123</roomNumber>
+      <isItFree>false</isItFree>
     </room>
   </exams>
   <exams>
     <date>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>23 December 2019</value>
+      <month>12</month>
+      <year>2019</year>
+      <day>28</day>
     </date>
     <teacher>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>Examiner4</value>
+      <firstName>Dumi</firstName>
+      <lastName> Bogus</lastName>
+      <teacherCourse> SSE</teacherCourse>
+      <isAvaliable>false</isAvaliable>
     </teacher>
     <course>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>RWD1</value>
+      <courseName>RWD1</courseName>
+      <typeOfExam> oral</typeOfExam>
+      <numberOfStudents> 27</numberOfStudents>
     </course>
     <students>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>1Z</value>
+      <studentID>296578</studentID>
+      <studentsClass> 1X</studentsClass>
     </students>
     <room>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>6</value>
+      <isItEquiped>true</isItEquiped>
+      <seatsNumber>20</seatsNumber>
+      <roomNumber>301</roomNumber>
+      <isItFree>true</isItFree>
     </room>
   </exams>
   <exams>
     <date>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>04 January 2020</value>
+      <month>12</month>
+      <year>2019</year>
+      <day>2</day>
     </date>
     <teacher>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>Examiner7</value>
+      <firstName>Wojtek</firstName>
+      <lastName> Mielczarek</lastName>
+      <teacherCourse> RWD</teacherCourse>
+      <isAvaliable>false</isAvaliable>
     </teacher>
     <course>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>DBS1</value>
+      <courseName>MSE1</courseName>
+      <typeOfExam> written</typeOfExam>
+      <numberOfStudents> 27</numberOfStudents>
     </course>
     <students>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>2D</value>
+      <studentID>290432</studentID>
+      <studentsClass> 1Y</studentsClass>
     </students>
     <room>
-      <valid>true</valid>
-      <helper>
-        <observable/>
-      </helper>
-      <name/>
-      <value>7</value>
+      <isItEquiped>false</isItEquiped>
+      <seatsNumber>33</seatsNumber>
+      <roomNumber>832</roomNumber>
+      <isItFree>false</isItFree>
+    </room>
+  </exams>
+  <exams>
+    <date>
+      <month>12</month>
+      <year>2019</year>
+      <day>13</day>
+    </date>
+    <teacher>
+      <firstName>Wojtek</firstName>
+      <lastName> Mielczarek</lastName>
+      <teacherCourse> RWD</teacherCourse>
+      <isAvaliable>false</isAvaliable>
+    </teacher>
+    <course>
+      <courseName>SDJ1</courseName>
+      <typeOfExam> oral</typeOfExam>
+      <numberOfStudents> 27</numberOfStudents>
+    </course>
+    <students>
+      <studentID>294274</studentID>
+      <studentsClass> 1X</studentsClass>
+    </students>
+    <room>
+      <isItEquiped>false</isItEquiped>
+      <seatsNumber>23</seatsNumber>
+      <roomNumber>123</roomNumber>
+      <isItFree>false</isItFree>
+    </room>
+  </exams>
+  <exams>
+    <date>
+      <month>12</month>
+      <year>2019</year>
+      <day>1</day>
+    </date>
+    <teacher>
+      <firstName>Paweł</firstName>
+      <lastName> Skrzypkowski</lastName>
+      <teacherCourse> SDJ1</teacherCourse>
+      <isAvaliable>false</isAvaliable>
+    </teacher>
+    <course>
+      <courseName>RWD1</courseName>
+      <typeOfExam> oral</typeOfExam>
+      <numberOfStudents> 27</numberOfStudents>
+    </course>
+    <students>
+      <studentID>﻿292148</studentID>
+      <studentsClass> 1Z</studentsClass>
+    </students>
+    <room>
+      <isItEquiped>true</isItEquiped>
+      <seatsNumber>20</seatsNumber>
+      <roomNumber>301</roomNumber>
+      <isItFree>true</isItFree>
+    </room>
+  </exams>
+  <exams>
+    <date>
+      <month>1</month>
+      <year>2020</year>
+      <day>5</day>
+    </date>
+    <teacher>
+      <firstName>Dumi</firstName>
+      <lastName> Bogus</lastName>
+      <teacherCourse> SSE</teacherCourse>
+      <isAvaliable>false</isAvaliable>
+    </teacher>
+    <course>
+      <courseName>MSE1</courseName>
+      <typeOfExam> written</typeOfExam>
+      <numberOfStudents> 27</numberOfStudents>
+    </course>
+    <students>
+      <studentID>296578</studentID>
+      <studentsClass> 1X</studentsClass>
+    </students>
+    <room>
+      <isItEquiped>false</isItEquiped>
+      <seatsNumber>23</seatsNumber>
+      <roomNumber>123</roomNumber>
+      <isItFree>false</isItFree>
     </room>
   </exams>
 </examlist>

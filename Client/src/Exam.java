@@ -2,19 +2,20 @@ import javafx.beans.property.SimpleStringProperty;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Exam
 {
 
-  private SimpleStringProperty date;
-  private SimpleStringProperty course;
-  private SimpleStringProperty room;
-  private SimpleStringProperty teacher;
-  private SimpleStringProperty students;
+  private LocalDate date;
+  private Course course;
+  private Room room;
+  private Teacher teacher;
+  private Student students;
 
-  public Exam(SimpleStringProperty date, SimpleStringProperty course,
-      SimpleStringProperty room, SimpleStringProperty teacher,
-      SimpleStringProperty students)
+  public Exam(LocalDate date, Course course,
+      Room room, Teacher teacher,
+      Student students)
   {
     this.date = date;
     this.course = course;
@@ -23,79 +24,54 @@ public class Exam
     this.students = students;
   }
 
-  public String getDate()
-  {
-    return date.get();
-  }
-
-  public SimpleStringProperty dateProperty()
+  public LocalDate getDate()
   {
     return date;
   }
 
-  public void setDate(String date)
+  public void setDate(LocalDate date)
   {
-    this.date.set(date);
+    this.date = date;
   }
 
-  public String getCourse()
-  {
-    return course.get();
-  }
-
-  public SimpleStringProperty courseProperty()
+  public Course getCourse()
   {
     return course;
   }
 
-  public void setCourse(String course)
+  public void setCourse(Course course)
   {
-    this.course.set(course);
+    this.course = course;
   }
 
-  public String getRoom()
-  {
-    return room.get();
-  }
-
-  public SimpleStringProperty roomProperty()
+  public Room getRoom()
   {
     return room;
   }
 
-  public void setRoom(String room)
+  public void setRoom(Room room)
   {
-    this.room.set(room);
+    this.room = room;
   }
 
-  public String getTeacher()
-  {
-    return teacher.get();
-  }
-
-  public SimpleStringProperty teacherProperty()
+  public Teacher getTeacher()
   {
     return teacher;
   }
 
-  public void setTeacher(String teacher)
+  public void setTeacher(Teacher teacher)
   {
-    this.teacher.set(teacher);
+    this.teacher = teacher;
   }
 
-  public String getStudents()
-  {
-    return students.get();
-  }
-
-  public SimpleStringProperty studentsProperty()
+  public Student getStudents()
   {
     return students;
   }
 
-  public void setStudents(String students)
+  public void setStudents(Student students)
   {
-    this.students.set(students);
+    this.students = students;
   }
 
   public String toString()

@@ -231,18 +231,26 @@ public class Controller2
   {
 
     LocalDate date = datePicker.getValue();
-    String course = courseBox.getValue().toString();
-    String room = classroomBox.getValue().toString();
-    String teacher = examinerBox.getValue().toString();
-    String student = studentsBox.getValue().toString();
+    Course course = courseBox.getValue();
+    Room room = classroomBox.getValue();
+    Teacher teacher = examinerBox.getValue();
+    Student student = studentsBox.getValue();
+
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
-    String formattedDate = date.format(formatter);
-    SimpleStringProperty var0 = new SimpleStringProperty(
-        (String) formattedDate);
-    SimpleStringProperty var1 = new SimpleStringProperty((String) course);
-    SimpleStringProperty var2 = new SimpleStringProperty((String) room);
+
+    LocalDate var0 =  date;
+
+    Course var1 = course;
+    Room var2 = room;
+    Teacher var3 = teacher;
+    Student var4 = student;
+
+
+    /*SimpleStringProperty var2 = new SimpleStringProperty((String) room);
     SimpleStringProperty var3 = new SimpleStringProperty((String) teacher);
     SimpleStringProperty var4 = new SimpleStringProperty((String) student);
+
+     */
     Exam exam = new Exam(var0, var1, var2, var3, var4);
     examList.addExam(exam);
     table.getItems().add(exam);
@@ -256,7 +264,6 @@ public class Controller2
             + "\nClassroom: " + classroomBox.getValue() + "\nDate: "
             + datePicker.getValue());
     alert.showAndWait();
-    System.out.println(examList);
 
   }
 
