@@ -89,14 +89,7 @@ public class TeachersFileAdapter
     teachers.getAllTeachers(any).setLastName(lastName);
     teachers.getAllTeachers(any).setTeacherCourse(teacherCourse);
     teachers.getAllTeachers(any).setAvaliable(isAvaliable);
-      /*for (int i = 0; i < students.getNumberOfStudents(); i++)
-      {
-         Student student = students.getAllStudents(i);
 
-            student.setStudentID(studentNumber);
-            student.setCourseCode(classNumber);
-
-      }*/
     saveTeachers(teachers);
   }
 

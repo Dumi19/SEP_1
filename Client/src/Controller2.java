@@ -13,6 +13,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+/**
+ * A class containing methods and components that are used in our program GUI and functionality.
+ *
+ * @author SEP Killers
+ * @version 1.0
+ */
 public class Controller2
 {
   @FXML private ComboBox<Course> courseBox;
@@ -59,12 +65,18 @@ public class Controller2
   @FXML private Button removeCourse;
   @FXML private Button removeTeachers;
 
+  /**
+   * Constructor initializing ExamList
+   */
   public Controller2()
   {
     examList = new ExamList();
 
   }
 
+  /**
+   * Method in which buttons are connected with our methods, it also allows us to load data into program from external txt file
+   */
   public void initialize()
   {
     setTableColumns();
@@ -117,6 +129,9 @@ public class Controller2
     updateTeachersBox();
   }
 
+  /**
+   * Updates the courseBox ComboBox with information from the courseList file
+   */
   public void updateCourseBox()
   {
     int currentIndex = courseBox.getSelectionModel().getSelectedIndex();
@@ -139,6 +154,9 @@ public class Controller2
     }
   }
 
+  /**
+   * Updates the studentsBox ComboBox with information from the studentsList file
+   */
   public void updateStudentsBox()
   {
     int currentIndex = studentsBox.getSelectionModel().getSelectedIndex();
@@ -161,6 +179,9 @@ public class Controller2
     }
   }
 
+  /**
+   * Updates the examinerBox ComboBox with information from the teacherList file
+   */
   public void updateTeachersBox()
   {
     int currentIndex = examinerBox.getSelectionModel().getSelectedIndex();
@@ -183,6 +204,9 @@ public class Controller2
     }
   }
 
+  /**
+   * Updates the classRoomBox ComboBox with information from the roomList file
+   */
   public void updateRoomsBox()
   {
     int currentIndex = classroomBox.getSelectionModel().getSelectedIndex();
@@ -205,6 +229,9 @@ public class Controller2
     }
   }
 
+  /**
+   * Method initializing table in exam tab
+   */
   private void setTableColumns()
   {
     TableColumn dateColumn = new TableColumn("Date");
@@ -227,6 +254,9 @@ public class Controller2
             studentColumn);
   }
 
+  /**
+   * Method that allow us to put exam information to the table in Exam tab, it is also displaying alert with all exam information
+   */
   private void scheduleAlert()
   {
 
@@ -239,18 +269,12 @@ public class Controller2
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
 
     LocalDate var0 =  date;
-
     Course var1 = course;
     Room var2 = room;
     Teacher var3 = teacher;
     Student var4 = student;
 
 
-    /*SimpleStringProperty var2 = new SimpleStringProperty((String) room);
-    SimpleStringProperty var3 = new SimpleStringProperty((String) teacher);
-    SimpleStringProperty var4 = new SimpleStringProperty((String) student);
-
-     */
     Exam exam = new Exam(var0, var1, var2, var3, var4);
     examList.addExam(exam);
     table.getItems().add(exam);
@@ -267,6 +291,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to export all the information from Exam tab table to xml file
+   */
   private void exportXML()
   {
     MyXmlConverter xml = new MyXmlConverter();
@@ -282,6 +309,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to select a position from the listView and put the information to textFields so we can change them
+   */
   private void updateInfo()
   {
     String studentNumber = StudentList.getSelectionModel().getSelectedItem()
@@ -294,6 +324,9 @@ public class Controller2
     classNumberField.setText(classNumber);
   }
 
+  /**
+   * Method that allows us to add students to arrayList and listView
+   */
   private void studentAdd()
   {
     String studentNumber = studentNumberField.getText();
@@ -307,6 +340,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to remove students from arrayList and listView
+   */
   private void removeStudent()
   {
 
@@ -321,6 +357,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to add courses to arrayList and listView
+   */
   private void courseAdd()
   {
     String courseName = courseNameField.getText();
@@ -336,6 +375,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to remove courses from arrayList and listView
+   */
   private void removeCourse()
   {
 
@@ -353,6 +395,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to add teachers to arrayList and listView
+   */
   private void teacherAdd()
   {
     String name = teacherName.getText();
@@ -376,6 +421,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to remove  teachers from arrayList and listView
+   */
   private void removeTeacher()
   {
 
@@ -394,6 +442,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to add classRooms to arrayList and listView
+   */
   private void roomAdd()
   {
     int number = Integer.parseInt(roomNumberField.getText());
@@ -420,6 +471,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to remove rooms from arrayList and listView
+   */
   private void removeRoom()
   {
 
@@ -437,6 +491,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to update teachers information in the listView
+   */
   private void updateInfoTeachers()
   {
     String name = TeachersList.getSelectionModel().getSelectedItem()
@@ -459,6 +516,9 @@ public class Controller2
 
   }
 
+  /**
+   * Method that allows us to update courses information in the listView
+   */
   private void updateInfoCourses()
   {
     String courseName = CourseList.getSelectionModel().getSelectedItem()
@@ -474,6 +534,9 @@ public class Controller2
     courseListMethod();
   }
 
+  /**
+   * Method that allows us to update rooms information in the listView
+   */
   private void updateInfoRooms()
   {
     int roomNumber = RoomsList.getSelectionModel().getSelectedItem()
@@ -500,7 +563,7 @@ public class Controller2
   }
 
   /**
-   * Updates the studentListView ListView with information from the students file
+   * Updates the studentListView with information from the studentsList file
    */
   private void studentListMethod()
   {
@@ -524,6 +587,9 @@ public class Controller2
     }
   }
 
+  /**
+   * Updates the teachersListView  with information from the teacherList file
+   */
   private void teachersListMethod()
   {
     int currentIndex = TeachersList.getSelectionModel().getSelectedIndex();
@@ -546,6 +612,9 @@ public class Controller2
     }
   }
 
+  /**
+   * Updates the coursesListView  with information from the coursesList file
+   */
   private void courseListMethod()
   {
     int currentIndex = CourseList.getSelectionModel().getSelectedIndex();
@@ -568,6 +637,9 @@ public class Controller2
     }
   }
 
+  /**
+   * Updates the roomsListView  with information from the RoomsList file
+   */
   private void roomsListMethod()
   {
     int currentIndex = RoomsList.getSelectionModel().getSelectedIndex();

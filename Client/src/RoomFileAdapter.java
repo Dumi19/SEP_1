@@ -4,7 +4,7 @@ import java.io.IOException;
 /**
  * An adapter to the rooms list file, making it easy to retrieve and store information.
  *
- * @author SEP Killers
+ * @author SEP group 7
  * @version 1.0
  */
 public class RoomFileAdapter

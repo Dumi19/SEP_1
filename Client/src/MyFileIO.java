@@ -9,8 +9,7 @@ import java.util.ArrayList;
 
 /**
  * A class responsible for reading and writing binary files.
- *
- * @author Allan Henriksen
+ * @author SEP group 7
  * @version 1.0
  */
 public class MyFileIO

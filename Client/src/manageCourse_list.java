@@ -1,6 +1,11 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A class used to manage course list
+ * @author SEP group 7
+ * @version 1.0
+ */
 public class manageCourse_list implements Serializable
 {
   private ArrayList<Course> courses;
@@ -15,12 +20,6 @@ public class manageCourse_list implements Serializable
 
   public ArrayList<Course> getAllCourses()
   {
-    //   // for (int i = 0; i < courses.size(); i++)
-    //    {
-    //        return courses.get(i);
-    //    }
-    //    return null; //I don't know if this part is correct
-
     return courses;
   }
 

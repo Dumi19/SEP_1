@@ -3,7 +3,7 @@ import java.io.Serializable;
 /**
  * A class representing a room with a room number, number of seats, equipment and availability.
  *
- * @author SEP Killers
+ * @author SEP group 7
  * @version 1.0
  */
 public class Room implements Serializable

@@ -7,7 +7,7 @@ import java.io.IOException;
  * and saves it as a binary file. The text file must have information of one course
  * on each line, and each line should be in the format: courseName, numberOfStudents, typeOfExams.
  *
- * @author SEP Killers
+ * @author SEP group 7
  * @version 1.0
  */
 public class LoadInitialDataCourse
@@ -58,3 +58,4 @@ public class LoadInitialDataCourse
     System.out.println("Done");
   }
 }
+

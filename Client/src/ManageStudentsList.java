@@ -1,6 +1,11 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A class used to manage students list
+ * @author SEP group 7
+ * @version 1.0
+ */
 public class ManageStudentsList implements Serializable
 {
   private ArrayList<Student> students;

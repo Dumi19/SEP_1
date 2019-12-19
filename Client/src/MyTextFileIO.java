@@ -7,8 +7,7 @@ import java.util.Scanner;
 
 /**
  * A class responsible for reading and writing text files.
- *
- * @author Allan Henriksen
+ * @author SEP group 7
  * @version 1.0
  */
 public class MyTextFileIO

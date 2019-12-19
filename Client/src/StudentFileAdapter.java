@@ -3,8 +3,7 @@ import java.io.IOException;
 
 /**
  * An adapter to the students file, making it easy to retrieve and store information.
- *
- * @author Allan Henriksen
+ * @author SEP group 7
  * @version 1.0
  */
 public class StudentFileAdapter
@@ -72,22 +71,28 @@ public class StudentFileAdapter
     }
   }
 
+  /**
+   * Uses the MyFileIO class to change the first name, last name, course which teacher teaches and availability of the teacher.
+   *
+   * @param any           the student's index in the array list
+   * @param studentNumber     the number of the student
+   * @param classNumber      the number of the class student belongs to
+   */
   public void changeStudent(int any, String studentNumber, String classNumber)
   {
     ManageStudentsList students = getAllStudents();
     students.getAllStudents(any).setStudentID(studentNumber);
     students.getAllStudents(any).setStudentsClass(classNumber);
-      /*for (int i = 0; i < students.getNumberOfStudents(); i++)
-      {
-         Student student = students.getAllStudents(i);
 
-            student.setStudentID(studentNumber);
-            student.setCourseCode(classNumber);
-
-      }*/
     saveStudents(students);
   }
 
+  /**
+   * Uses the MyFileIO class to add course to array with
+   * the given courseName and numberOfStudents.
+   * @param studentNumber the name of the course
+   * @param classNumber the number of students participating the course
+   */
   public void addStudentToArray(String studentNumber, String classNumber)
   {
     ManageStudentsList students = getAllStudents();
@@ -96,6 +101,12 @@ public class StudentFileAdapter
     saveStudents(students);
   }
 
+  /**
+   * Uses the MyFileIO class to remove course from array with
+   * the given courseName and numberOfStudents.
+   * @param studentNumber the number of the student
+   * @param classNumber the number of class the students belong to
+   */
   public void removeStudentFromArray(String studentNumber, String classNumber)
   {
     ManageStudentsList students = getAllStudents();
@@ -111,6 +122,4 @@ public class StudentFileAdapter
 
     saveStudents(students);
   }
-
-  // Add more methods to the adapter depending on what you wish to do
 }

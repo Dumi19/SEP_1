@@ -1,6 +1,11 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A class used to manage teachers list
+ * @author SEP group 7
+ * @version 1.0
+ */
 public class ManageTeachers implements Serializable
 {
   private ArrayList<Teacher> teachers;
@@ -44,7 +49,7 @@ public class ManageTeachers implements Serializable
     teachers.remove(index);
   }
 
-  public int getNumberOfAvaliableTeachers() //check
+  public int getNumberOfAvaliableTeachers()
   {
     int amount = 0;
 
@@ -58,7 +63,7 @@ public class ManageTeachers implements Serializable
     return amount;
   }
 
-  public ArrayList<Teacher> getAvaliableTeachers()               //check
+  public ArrayList<Teacher> getAvaliableTeachers()
   {
     ArrayList<Teacher> tempList = new ArrayList<Teacher>();
     for (int i = 0; i < teachers.size(); i++)

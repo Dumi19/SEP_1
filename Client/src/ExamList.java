@@ -1,6 +1,11 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A class representing a ExamList with arrayList
+ * @author SEP group 7
+ * @version 1.0
+ */
 public class ExamList implements Serializable
 {
 

@@ -7,7 +7,7 @@ import java.io.IOException;
  * and saves it as a binary file. The text file must have information of one teacher
  * on each line, and each line should be in the format: firstName,lastName,teacherCourse, isAvaliable
  *
- * @author SEP Killers
+ * @author SEP group 7
  * @version 1.0
  */
 public class LoadInitialDataTeachers

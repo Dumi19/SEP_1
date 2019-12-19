@@ -9,6 +9,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * A GUI tab containing components for displaying GUI.
+ * @author SEP group 7
+ * @version 1.0
+ */
 public class TabGuiFXML extends Application
 {
 

@@ -7,7 +7,7 @@ import java.io.IOException;
  * and saves it as a binary file. The text file must have information of one room
  * on each line, and each line should be in the format: roomNumber, seatsNumber, isItEquiped, isItFree
  *
- * @author SEP Killers
+ * @author SEP group 7
  * @version 1.0
  */
 public class LoadInitialDataRooms

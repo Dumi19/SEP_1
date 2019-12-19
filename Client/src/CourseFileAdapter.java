@@ -46,6 +46,10 @@ public class CourseFileAdapter
     return courses;
   }
 
+  /**
+   * Use the MyFileIO class to save some students.
+   * @param courses the list of students that will be saved
+   */
   public void saveCourses(manageCourse_list courses)
   {
     try
@@ -62,23 +66,12 @@ public class CourseFileAdapter
     }
   }
 
-  public void changeCourse(int any, String courseName, String numberOfStudents,
-      String typeOfExam)
-  {
-    manageCourse_list courses = getAllCourses();
-    courses.getAllCourses(any).setCourseName(courseName);
-    courses.getAllCourses(any).setNumberOfStudents(numberOfStudents);
-    courses.getAllCourses(any).setTypeOfExam(typeOfExam);
-      /*for (int i = 0; i < students.getNumberOfStudents(); i++)
-      {
-         Student student = students.getAllStudents(i);
-
-            student.setStudentID(studentNumber);
-            student.setCourseCode(classNumber);
-
-      }*/
-    saveCourses(courses);
-  }
+  /**
+   * Uses the MyFileIO class to add course to array with
+   * the given courseName and numberOfStudents.
+   * @param courseName the name of the course
+   * @param numberOfStudents the number of students participating the course
+   */
 
   public void addCourseToArray(String courseName, String numberOfStudents,
       String typeOfExam)
@@ -89,6 +82,12 @@ public class CourseFileAdapter
     saveCourses(courses);
   }
 
+  /**
+   * Uses the MyFileIO class to remove course from array with
+   * the given courseName and numberOfStudents.
+   * @param courseName the name of the course
+   * @param numberOfStudents the number of students participating the course
+   */
   public void removeCourseFromArray(String courseName, String numberOfStudents,
       String typeOfExam)
   {

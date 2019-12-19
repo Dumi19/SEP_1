@@ -3,7 +3,7 @@ import java.io.Serializable;
 /**
  * A class representing a teacher with a first name, last name, the course he/she teaches and his/her availability.
  *
- * @author SEP Killers
+ * @author SEP group 7
  * @version 1.0
  */
 public class Teacher implements Serializable

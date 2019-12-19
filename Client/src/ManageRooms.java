@@ -1,6 +1,11 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A class used to manage rooms list
+ * @author SEP group 7
+ * @version 1.0
+ */
 public class ManageRooms implements Serializable
 {
   private ArrayList<Room> rooms;
